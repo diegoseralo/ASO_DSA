@@ -1,4 +1,4 @@
-# PR0203: Configuración de SSH para varios usuarios
+# PR0R1: Configuración de SSH para varios usuarios
 
 ## Aspectos generales
 
