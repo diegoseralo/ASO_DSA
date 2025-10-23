@@ -162,46 +162,64 @@ Vamos a ver ahora cómo funciona y para qué sirve el **bit setgid**. Realiza lo
 1. Crea un grupo llamado `asir` y los usuarios `{iniciales}1` e `{iniciales}2`, donde `{iniciales}` son las iniciales de tu nombre. Por ejemplo, en mi caso se llamarían `vjgr1` y `vjgr2`. Haz que los usuarios pertenezcan al grupo.
 ---
 ```bash
-
+sudo groupadd asir
+sudo useradd -m -G asir -s /bin/bash dsa1
+sudo useradd -m -G asir -s /bin/bash dsa2
 ```
 ---
 3. Crea el directorio `/compartido` y asigna propietario: `root` como usuario propietario y `asir` como grupo propietario.
 ---
 ```bash
-
+sudo mkdir /compartido
+sudo chown root:asir /compartido
 ```
 ---
 3.  Asigna al directorio creado permisos de lectura, escritura y ejecución para el usuario y el grupo propietario. El resto de usuarios no tendrá ningún tipo de permiso.
 ---
 ```bash
-
+sudo chmod 770 /compartido
 ```
 ---
 4.  Establece el **bit setgid** en el directorio y verifica que se haya asignado.
 ---
 ```bash
-
+sudo chmod 2770 /compartido
+sudo ls -ld /compartido
+drwxrws--- 2 root asir 4096 oct 23 15:32 /compartido
 ```
 ---
 5.  Inicia sesión con `usuario1`, accede al directorio y crea un fichero llamado `fichero1` con algo de contenido. Comprueba los permisos del fichero que has creado.
 ---
 ```bash
-
+su dsa1
+cd /compartido
+nano fichero1
+ls -l fichero1
+-rw-rw-r-- 1 dsa1 asir 22 oct 23 15:42 fichero1
 ```
 ---
 6.  Ahora inicia sesión con `usuario2` y comprueba si puedes acceder a `/compartido/fichero1` y si puedes añadirle contenido.
 ---
 ```bash
-
+su dsa2
+cd /compartido
+nano fichero1
 ```
+Si puedes añadir contenido
+
 ---
 7.  Responde las siguientes preguntas:
     - ¿Qué ventajas tiene usar el bit setgid en entornos colaborativos?
+  `Hacen que los ficheros y subdirectorios creados hereden el grupo del propietario del directorio y falicita la colaboracion en un grupo.`
     - ¿Qué sucede si no se aplica el bit setgid en un entorno colaborativo?
-8. Cuando hayas acabado, limpia el sistema eliminando los usuarios y el directorio creado para la práctica.
+  `Puede que nuevos fichjero terminen con permiso de grupos distintos`
+1. Cuando hayas acabado, limpia el sistema eliminando los usuarios y el directorio creado para la práctica.
 ---
 ```bash
-
+sudo userdel -r dsa1
+sudo userdel -r dsa2
+sudo groupdel asir
+sudo rm -r /compartido
 ```
 ---
 
