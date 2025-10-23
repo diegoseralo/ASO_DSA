@@ -229,51 +229,58 @@ sudo rm -r /compartido
 Ahora vamos a practicar con el **sticky  bit**. Realiza los siguientes pasos:
 
 1. Crea el directorio `/compartido` con todos los permisos para todos los usuarios.
+---
+```bash 
+sudo mkdir /compartido
+sudo chmod 777 /compartido
+```
+---
 2. Crea dos usuarios `{iniciales}1` e `{iniciales}2`
+---
+```bash
+sudo adduser dsa1
+sudo adduser dsa2
+```
+---
 3. Vamos a probar primero el funcionamiento sin el sticky bit. Inicia sesión con el primer usuario, crea un fichero y luego, con el segundo usuario, intenta eliminarlo.
+---
+```bash
+su dsa1
+cd /compartido
+touch fichero1
+su dsa2
+rm fichero1
+```
+---
 4. Ahora establece el sticky bit en el directorio y verifica que se ve en los permisos.
+---
+```bash
+sudo chmod 1777 /compartido
+```
+---
 5. Vuelve a iniciar sesión con el primer usuario, crea un fichero e intenta eliminarlo con el segundo usuario.
+---
+```bash
+su dsa1
+cd /compartido
+touch fichero1
+su dsa2
+rm fichero1
+```
+Ahora no puedes borrarlo `rm: cannot remove 'fichero1': Operation not permitted`
+
+---
 6. Responde las siguientes preguntas:
    - ¿Qué efecto tiene el sticky bit en un directorio?
+  `Cuando esta el sticky bit solo el propietario del fichero o del directorio o el root pueden editar o borrar ficheros de ese directorio.`
    - Si tienes habilitado el sticky bit, ¿cómo tendrías que hacer para eliminar un fichero dentro del directorio?
+  `Pues borrarlo desde el propietario del fichero o desde root`
 
 
 ### 5. El fichero `/etc/shadow` (**OPCIONAL**)
 
-El fichero `/etc/shadow` es un directorio cuya protección es vital en un sistema Linux ya que contiene los hashes de las contraseñas de los usuarios. 
-
-Para esta parte de la práctica tienes que utilizar la imagen `generic/ubuntu2004` de Vagrant.
-
-1. Crea un usuario llamado `{iniciales}` con contraseña `asir2`.
-2. Muestra la línea de l fichero `/etc/shadow` que contiene la contraseña de este usuario.
-3. En el segundo enlace del apartado [recursos](#recursos) puedes ver un listado de los diferentes tipos de hash soportados por este fichero. ¿Cuáles son?
-4. ¿Cuál es el tipo de hash utilizado en tu sistema?
-5. Seguro que has observado que hay un segundo campo en el hash que llama la **sal**. ¿Para qué sirve este campo?
-6. Dos tipos de ataque muy comunes para obtener las contraseñas de los usuarios son los **ataques de diccionario** y las **tablas rainbow**. Busca por Internet y averigua en qué consisten ambos tipos de ataque.
-7. En el tercer enlace de los [recursos](#recursos) puedes ver cómo se genera un hash SHA512 desde la línea de comandos. Verifica que el hash que hay guardado en el fichero `/etc/shadow` es el hash de la contraseña `asir1`
-
-
+`NO REALIZADO`
 ### 6. Rompiendo hashes con John the Ripper (**OPCIONAL**)
+`NO REALIZADO`
 
-Como una parte importante de la administración de sistemas es la protección de los mismos, vamos a ver cómo funciona una de las herramientas más utilizadas para obtenerlas a partir de los hash. Esta herramienta se llama **John the Ripper**, y, aunque permite varios tipos de ataque, la usaremos para realizar un **ataque de diccionario**.
-
-Realiza los siguientes pasos:
-
-- Instálala a partir de los repositorios. 
-- Obviamente, para un ataque de diccionario necesitamos el diccionario de palabras. Uno de los más conocidos es el denominado `rockyou.txt`, que contiene casi 15 millones de contraseñas. Tienes la URL en el apartado recursos, descárgalo y guárdalo en `/usr/share/wordlists`
-- Si `rockyou.txt` se te queda pequeño siempre puedes utilizar alguno de los diccionarios del proyecto SecLists (enlace en recursos), que contiene diccionarios para todo tipo de ataques.
-- A continuación, extrae la cadena con el hash de la contraseña en un fichero que llamaremos `passwordfile`.
-- Ya es momento the utilizar JtR, si investigas un poco verás que dispone de tres modos: single mode, dictionary e incremental. Realiza una breve investigación y explica en qué consiste cada uno de los modos.
-- Utiliza JtR para descifrar la contraseña, recuerda que los modificadores que puedes utilizar son:
-  - `--single`
-  - `--wordlist dict_file`
-  - `--incremental`
-
-
-### ¿Qué hay que entregar?
-
-Debes entregar:
-
-- Documentación de los pasos más relevantes
-
-
+[VOLVER A INICIO](../../../index.md)
