@@ -1,0 +1,497 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Instale la versión más reciente de PowerShell para obtener nuevas características y mejoras. https://aka.ms/PSWindows
+
+PS C:\Users\HP> ipconfig
+
+Configuración IP de Windows
+
+
+Adaptador de Ethernet vEthernet (Default Switch):
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::3b36:f9ce:2d86:aa7a%24
+   Dirección IPv4. . . . . . . . . . . . . . : 172.18.144.1
+   Máscara de subred . . . . . . . . . . . . : 255.255.240.0
+   Puerta de enlace predeterminada . . . . . :
+
+Adaptador de Ethernet vEthernet (WSL (Hyper-V firewall)):
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::5b35:4750:49da:e6cd%50
+   Dirección IPv4. . . . . . . . . . . . . . : 172.17.64.1
+   Máscara de subred . . . . . . . . . . . . : 255.255.240.0
+   Puerta de enlace predeterminada . . . . . :
+
+Adaptador de Ethernet Ethernet 3:
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::f75e:39bb:fd1e:2e3f%14
+   Dirección IPv4. . . . . . . . . . . . . . : 192.168.1.1
+   Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . :
+
+Adaptador de LAN inalámbrica Conexión de área local* 1:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de LAN inalámbrica Conexión de área local* 2:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de LAN inalámbrica Wi-Fi:
+
+   Sufijo DNS específico para la conexión. . : educa.jcyl.es
+   Vínculo: dirección IPv6 local. . . : fe80::6eed:d87e:267e:60df%4
+   Dirección IPv4. . . . . . . . . . . . . . : 10.162.185.123
+   Máscara de subred . . . . . . . . . . . . : 255.255.254.0
+   Puerta de enlace predeterminada . . . . . : 10.162.184.1
+PS C:\Users\HP> ipconfig
+
+Configuración IP de Windows
+
+
+Adaptador de Ethernet vEthernet (Default Switch):
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::fa18:c820:5a86:e6ca%24
+   Dirección IPv4. . . . . . . . . . . . . . : 172.18.144.1
+   Máscara de subred . . . . . . . . . . . . : 255.255.240.0
+   Puerta de enlace predeterminada . . . . . :
+
+Adaptador de Ethernet vEthernet (WSL (Hyper-V firewall)):
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::dc63:f00a:a3bc:3682%50
+   Dirección IPv4. . . . . . . . . . . . . . : 172.17.64.1
+   Máscara de subred . . . . . . . . . . . . : 255.255.240.0
+   Puerta de enlace predeterminada . . . . . :
+
+Adaptador de Ethernet Ethernet 3:
+
+   Sufijo DNS específico para la conexión. . :
+   Vínculo: dirección IPv6 local. . . : fe80::f75e:39bb:fd1e:2e3f%14
+   Dirección IPv4. . . . . . . . . . . . . . : 192.168.56.104
+   Máscara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . :
+
+Adaptador de LAN inalámbrica Conexión de área local* 1:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de LAN inalámbrica Conexión de área local* 2:
+
+   Estado de los medios. . . . . . . . . . . : medios desconectados
+   Sufijo DNS específico para la conexión. . :
+
+Adaptador de LAN inalámbrica Wi-Fi:
+
+   Sufijo DNS específico para la conexión. . : educa.jcyl.es
+   Vínculo: dirección IPv6 local. . . : fe80::6eed:d87e:267e:60df%4
+   Dirección IPv4. . . . . . . . . . . . . . : 10.162.185.123
+   Máscara de subred . . . . . . . . . . . . : 255.255.254.0
+   Puerta de enlace predeterminada . . . . . : 10.162.184.1
+PS C:\Users\HP> ping 192.168.56.10
+
+Haciendo ping a 192.168.56.10 con 32 bytes de datos:
+Respuesta desde 192.168.56.10: bytes=32 tiempo=94ms TTL=64
+Respuesta desde 192.168.56.10: bytes=32 tiempo=1ms TTL=64
+
+Estadísticas de ping para 192.168.56.10:
+    Paquetes: enviados = 2, recibidos = 2, perdidos = 0
+    (0% perdidos),
+Tiempos aproximados de ida y vuelta en milisegundos:
+    Mínimo = 1ms, Máximo = 94ms, Media = 47ms
+Control-C
+PS C:\Users\HP> ssh diego@192.168.56.10
+The authenticity of host '192.168.56.10 (192.168.56.10)' can't be established.
+ED25519 key fingerprint is SHA256:vbovQ6EiTIZFdjCgu1a1ggeOE2qvMRnszQFPbpG1MTo.
+This host key is known by the following other names/addresses:
+    C:\Users\HP/.ssh/known_hosts:14: 192.168.56.102
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+PS C:\Users\HP> ssh diego@192.168.56.10
+The authenticity of host '192.168.56.10 (192.168.56.10)' can't be established.
+ED25519 key fingerprint is SHA256:vbovQ6EiTIZFdjCgu1a1ggeOE2qvMRnszQFPbpG1MTo.
+This host key is known by the following other names/addresses:
+    C:\Users\HP/.ssh/known_hosts:14: 192.168.56.102
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added '192.168.56.10' (ED25519) to the list of known hosts.
+diego@192.168.56.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of mié 22 oct 2025 08:54:52 UTC
+
+  System load:             0.0
+  Usage of /:              43.1% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               116
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fe4a:ea2f
+
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 97 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Thu Oct 16 12:25:50 2025 from 192.168.56.1
+diego@diego:~$ sudo nano /etc/netplan/50-cloud-init.yaml
+[sudo] password for diego:
+diego@diego:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:4a:ea:2f brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 metric 100 brd 10.0.2.255 scope global dynamic enp0s3
+       valid_lft 85710sec preferred_lft 85710sec
+    inet6 fd00::a00:27ff:fe4a:ea2f/64 scope global dynamic mngtmpaddr noprefixroute
+       valid_lft 85721sec preferred_lft 13721sec
+    inet6 fe80::a00:27ff:fe4a:ea2f/64 scope link
+       valid_lft forever preferred_lft forever
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:13:e7:45 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.56.10/24 brd 192.168.56.255 scope global enp0s8
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe13:e745/64 scope link
+       valid_lft forever preferred_lft forever
+4: enp0s9: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:2a:93:2c brd ff:ff:ff:ff:ff:ff
+    inet 10.20.0.10/16 brd 10.20.255.255 scope global enp0s9
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fe2a:932c/64 scope link
+       valid_lft forever preferred_lft forever
+5: enp0s10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:d9:46:7d brd ff:ff:ff:ff:ff:ff
+    inet 10.30.0.10/16 brd 10.30.255.255 scope global enp0s10
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fed9:467d/64 scope link
+       valid_lft forever preferred_lft forever
+diego@diego:~$ ssh sysadmin@10.30.0.20
+The authenticity of host '10.30.0.20 (10.30.0.20)' can't be established.
+ED25519 key fingerprint is SHA256:XtRPCDYrX6qhF7tlJV3XhcI9e+CspTNumYWYR6wJay4.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.30.0.20' (ED25519) to the list of known hosts.
+sysadmin@10.30.0.20's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of mié 22 oct 2025 09:14:06 UTC
+
+  System load:             0.0
+  Usage of /:              42.4% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               116
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fe1c:feb4
+
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 96 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+sysadmin@sysadmin:~$ exit
+logout
+Connection to 10.30.0.20 closed.
+diego@diego:~$ exit
+logout
+Connection to 192.168.56.10 closed.
+PS C:\Users\HP> ssh-keygen
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (C:\Users\HP/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in C:\Users\HP/.ssh/id_ed25519
+Your public key has been saved in C:\Users\HP/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:LL3+SCWjgcVHLUZ0jogUUk2Zx0QIwxsHM4bizEnbRxY hp@LAPTOP-DIEGO
+The key's randomart image is:
++--[ED25519 256]--+
+|  .+@EoX*..      |
+|...+oO*o=+.      |
+|=.+ +++oo..      |
+| * ..+ +         |
+|    o o S .      |
+|       + =       |
+|      . o        |
+|       o .       |
+|        o..      |
++----[SHA256]-----+
+PS C:\Users\HP> scp .\.ssh\id_ed25519.pub diego@192.168.56.10
+        1 archivo(s) copiado(s).
+PS C:\Users\HP> scp .\.ssh\id_ed25519.pub diego@192.168.56.10:~
+diego@192.168.56.10's password:
+id_ed25519.pub                                                                                                            100%   98    23.9KB/s   00:00
+PS C:\Users\HP> ssh diego@192.168.56.10
+diego@192.168.56.10's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of mié 22 oct 2025 09:17:34 UTC
+
+  System load:             0.09
+  Usage of /:              43.1% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               114
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fe4a:ea2f
+
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 97 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Wed Oct 22 08:54:52 2025 from 192.168.56.104
+diego@diego:~$ ls
+id_ed25519.pub
+diego@diego:~$ ls -a
+.  ..  .bash_history  .bash_logout  .bashrc  .cache  id_ed25519.pub  .lesshst  .profile  .ssh  .sudo_as_admin_successful
+diego@diego:~$ cat id_ed25519.pub >> .ssh/authorized_keys
+diego@diego:~$ exit
+logout
+Connection to 192.168.56.10 closed.
+PS C:\Users\HP> ssh diego@192.168.56.10
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of mié 22 oct 2025 09:18:36 UTC
+
+  System load:             0.03
+  Usage of /:              43.1% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               116
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fe4a:ea2f
+
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 97 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Wed Oct 22 09:17:45 2025 from 192.168.56.104
+diego@diego:~$ ssh-keygen
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/diego/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/diego/.ssh/id_ed25519
+Your public key has been saved in /home/diego/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:WHb9P45NKFs0nCtnrGSJtt+63iSDaIwuDQyUFgcaKe8 diego@diego
+The key's randomart image is:
++--[ED25519 256]--+
+|.++.             |
+|+=.        .     |
+|=.      o . .    |
+| ..    + .  ...  |
+| .o   . S    =.  |
+|  Eo  o . o + +. |
+|    o. + + O O o.|
+|   .... . + # = .|
+|    ..   .oBo+ o |
++----[SHA256]-----+
+diego@diego:~$ scp .ssh/id_ed25519.pub sysadmin@10.20.0.20:~
+sysadmin@10.20.0.20's password:
+Permission denied, please try again.
+sysadmin@10.20.0.20's password:
+id_ed25519.pub                                                                                                                                                                                                                                        100%   93    24.6KB/s   00:00
+diego@diego:~$ scp .ssh/id_ed25519.pub sysadmin@10.30.0.20:~
+sysadmin@10.30.0.20's password:
+id_ed25519.pub                                                                                                                                                                                                                                        100%   93    37.5KB/s   00:00
+diego@diego:~$ ssh sysadmin@10.20.0.20
+sysadmin@10.20.0.20's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of jue 23 oct 2025 10:58:34 UTC
+
+  System load:             0.08
+  Usage of /:              42.7% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               124
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fef1:49cc
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 96 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+
+Last login: Thu Oct 23 10:56:51 2025 from 10.20.0.10
+sysadmin@sysadmin:~$ cat id_ed25519.pub >> .ssh/authorized_keys
+sysadmin@sysadmin:~$ exit
+logout
+Connection to 10.20.0.20 closed.
+diego@diego:~$ ssh sysadmin@10.20.0.20
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of jue 23 oct 2025 10:58:34 UTC
+
+  System load:             0.08
+  Usage of /:              42.7% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               124
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fef1:49cc
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 96 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+
+Last login: Thu Oct 23 10:58:51 2025 from 10.20.0.10
+sysadmin@sysadmin:~$ exit
+logout
+Connection to 10.20.0.20 closed.
+diego@diego:~$ ssh sysadmin@10.30.0.20
+sysadmin@10.30.0.20's password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of jue 23 oct 2025 10:58:42 UTC
+
+  System load:             0.02
+  Usage of /:              42.7% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               120
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fe1c:feb4
+
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 96 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+
+Last login: Wed Oct 22 09:14:07 2025 from 10.30.0.10
+sysadmin@sysadmin:~$ cat id_ed25519.pub >> .s
+.ssh/                      .sudo_as_admin_successful
+sysadmin@sysadmin:~$ cat id_ed25519.pub >> .ssh/authorized_keys
+sysadmin@sysadmin:~$ exit
+logout
+Connection to 10.30.0.20 closed.
+diego@diego:~$ ssh sysadmin@10.30.0.20
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-85-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of jue 23 oct 2025 10:59:45 UTC
+
+  System load:             0.0
+  Usage of /:              42.7% of 11.21GB
+  Memory usage:            5%
+  Swap usage:              0%
+  Processes:               119
+  Users logged in:         1
+  IPv4 address for enp0s3: 10.0.2.15
+  IPv6 address for enp0s3: fd00::a00:27ff:fe1c:feb4
+
+
+El mantenimiento de seguridad expandido para Applications está desactivado
+
+Se pueden aplicar 96 actualizaciones de forma inmediata.
+Para ver estas actualizaciones adicionales, ejecute: apt list --upgradable
+
+Active ESM Apps para recibir futuras actualizaciones de seguridad adicionales.
+Vea https://ubuntu.com/esm o ejecute «sudo pro status»
+
+
+Last login: Thu Oct 23 10:59:23 2025 from 10.30.0.10
+sysadmin@sysadmin:~$
