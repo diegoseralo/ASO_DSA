@@ -1,9 +1,7 @@
 # PR0201: Usuarios y permisos en Linux
 ---
 
-## Enunciado
-
-### 1. Permisos de usuarios
+## 1. Permisos de usuarios
 
 A no ser que se indique lo contrario realiza todas las operaciones desde el directorio personal de tu usuario.
 ```bash 
@@ -59,7 +57,7 @@ chmod 751 pr0201/dir2
 mkdir pr0201/dir2/dir21
 ```
 ---
-### 2. Notación octal y simbólica
+## 2. Notación octal y simbólica
 
 1.	Supón que el fichero `~/file` tiene los permisos `rw-r--r--`. Escribe el comando o comandos que necesitarías para establecer los siguientes permisos en el fichero anterior utilizando **notación simbólica**. 
 
@@ -155,7 +153,7 @@ mkdir pr0201/dir2/dir21
   chmod 017 file
   ```
 ---
-### 3. El bit setgid
+## 3. El bit setgid
 
 Vamos a ver ahora cómo funciona y para qué sirve el **bit setgid**. Realiza los siguientes pasos:
 
@@ -224,7 +222,7 @@ sudo rm -r /compartido
 ---
 
 
-### 4. El sticky bit
+## 4. El sticky bit
 
 Ahora vamos a practicar con el **sticky  bit**. Realiza los siguientes pasos:
 
@@ -277,10 +275,10 @@ Ahora no puedes borrarlo `rm: cannot remove 'fichero1': Operation not permitted`
   `Pues borrarlo desde el propietario del fichero o desde root`
 
 
-### 5. El fichero `/etc/shadow` (**OPCIONAL**)
+## 5. El fichero `/etc/shadow` (**OPCIONAL**)
 
 `NO REALIZADO`
-### 6. Rompiendo hashes con John the Ripper (**OPCIONAL**)
+## 6. Rompiendo hashes con John the Ripper (**OPCIONAL**)
 `NO REALIZADO`
 
 [VOLVER A INICIO](../../../index.md)
