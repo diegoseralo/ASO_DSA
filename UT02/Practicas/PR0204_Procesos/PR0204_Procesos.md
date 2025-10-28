@@ -37,7 +37,7 @@ root         769  0.0  0.0      0     0 ?        I<   16:39   0:00 [kworker/R-cf
       Siginifica que solo ese usuario (o root) puede modificar, cambiar o finalizar ese proceso.
 
       ---
-1. **Monitorización de procesos en tiempo real:**
+2. **Monitorización de procesos en tiempo real:**
    - Utiliza el comando `top` para monitorizar los procesos en tiempo real. Identifica el proceso que consume más CPU y anota su PID.
     ---
     ```bash
@@ -76,7 +76,7 @@ root         769  0.0  0.0      0     0 ?        I<   16:39   0:00 [kworker/R-cf
 
       ---
 
-2. **Detener y reanudar procesos:**
+3. **Detener y reanudar procesos:**
    - Ejecuta el comando `sleep 300 &` para crear un proceso en segundo plano que duerma durante 300 segundos.
    - Usa el comando `jobs` para listar los trabajos en segundo plano. Anota el ID del trabajo.
    - Detén el proceso usando el comando `kill` con la señal `SIGSTOP`. Verifica que el proceso esté detenido.
@@ -85,7 +85,7 @@ root         769  0.0  0.0      0     0 ?        I<   16:39   0:00 [kworker/R-cf
      - ¿Qué efecto tiene la señal `SIGSTOP` sobre un proceso?
      - ¿Cómo puedo verificar si un proceso está detenido o en ejecución?
 
-3. **Terminar procesos:**
+4. **Terminar procesos:**
    - Crea un proceso en segundo plano con el comando `sleep 600 &`.
    - Usa el comando `ps` para encontrar el PID del proceso `sleep`.
    - Termina el proceso usando el comando `kill` con la señal `SIGTERM`. Verifica que el proceso haya sido eliminado.
@@ -93,7 +93,7 @@ root         769  0.0  0.0      0     0 ?        I<   16:39   0:00 [kworker/R-cf
      - ¿Qué diferencia hay entre las señales `SIGTERM` y `SIGKILL`?
      - ¿Por qué es preferible utilizar `SIGTERM` antes que `SIGKILL` para terminar un proceso?
 
-4. **Prioridades de procesos:**
+5. **Prioridades de procesos:**
    - Ejecuta el comando `nice -n 10 sleep 300 &` para crear un proceso con una prioridad baja.
    - Usa el comando `ps -l` para ver la prioridad (NI) del proceso. Anota el valor de NI.
    - Cambia la prioridad del proceso usando el comando `renice`. Establece la prioridad a 5 y verifica el cambio con `ps -l`.
@@ -102,7 +102,7 @@ root         769  0.0  0.0      0     0 ?        I<   16:39   0:00 [kworker/R-cf
      - ¿Qué rango de valores puede tomar la prioridad (nice value) de un proceso y qué significa cada extremo?
      - ¿Qué ocurre si intentas cambiar la prioridad de un proceso que no te pertenece?
 
-5. **Procesos en primer y segundo plano:**
+6. **Procesos en primer y segundo plano:**
    - Ejecuta el comando `sleep 200` en primer plano. Detén el proceso usando `Ctrl+Z`.
    - Usa el comando `bg` para mover el proceso detenido a segundo plano.
    - Trae el proceso de segundo plano a primer plano usando el comando `fg`.
@@ -111,7 +111,7 @@ root         769  0.0  0.0      0     0 ?        I<   16:39   0:00 [kworker/R-cf
      - ¿Qué comando utilizarías para mover un proceso detenido a segundo plano?
      - ¿Cómo puedes traer un proceso de segundo plano a primer plano si tienes múltiples trabajos en segundo plano?
 
-6. **Uso de `pstree` y `htop`:**
+7. **Uso de `pstree` y `htop`:**
    - Instala la herramienta `htop` si no está disponible en tu sistema (`sudo apt install htop`).
    - Usa `htop` para explorar los procesos de manera interactiva. Filtra los procesos por usuario y anota el nombre de un proceso que pertenezca a otro usuario.
    - Usa el comando `pstree` para visualizar los procesos en forma de árbol. Identifica un proceso padre y sus procesos hijos, y anota sus nombres.
@@ -119,7 +119,7 @@ root         769  0.0  0.0      0     0 ?        I<   16:39   0:00 [kworker/R-cf
      - ¿Qué ventaja tiene utilizar `pstree` frente a `ps` para visualizar procesos?
      - ¿Cómo puedes filtrar procesos por usuario en `htop`?
 
-7. **Matar procesos de manera forzosa:**
+8. **Matar procesos de manera forzosa:**
    - Crea un proceso en segundo plano con `sleep 400 &`.
    - Usa el comando `kill -9` para terminar el proceso de manera forzosa. Verifica que el proceso haya sido eliminado.
    - Responde las siguientes **preguntas**:
