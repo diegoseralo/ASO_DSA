@@ -164,13 +164,16 @@ Añades:
     - `cron.daily`:
     ---
     Se almacenan scripts que se ejecutan diariamente.
+
     ---
     - `cron.hourly`:
     ---
     Se almacenan scripts que se ejecutan cada hora.
+
     ---
     - `cron.monthly`:
     ---
     Se almacenan scripts que se ejecutan mensualmente.
+    
     ---
 [VOLVER A INICIO](../../../index.md)
