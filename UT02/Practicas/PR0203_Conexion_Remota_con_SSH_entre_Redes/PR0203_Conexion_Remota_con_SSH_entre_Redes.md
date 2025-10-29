@@ -20,6 +20,7 @@ Debes hacer lo siguiente:
 
 - Realiza los pasos necesarios para conectarte de forma transparente por SSH desde tu equipo a `SERVER-A` con la cuenta de usuario que has creado.
 - Realiza los pasos necesarios para conectarte por SSH de forma trasparente desde el equipo `SERVER-A` a los otros dos equipos usando la cuenta `sysadmin`
+
 ---
 ## Practica
 Primero vamos a configurar las redes de las máquinas:
