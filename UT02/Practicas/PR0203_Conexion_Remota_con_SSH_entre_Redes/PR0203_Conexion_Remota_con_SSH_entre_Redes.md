@@ -73,29 +73,111 @@ Ahora ya nos podemos conectar por SSH pero tenemos que configurarlo para poder c
 ### Equipo Anfitrión 
 Desde PowerShell, creamos las claves de ssh.
 ```shell 
-ssh-keygen
+PS C:\Users\HP> ssh-keygen
 ```
 Ahora las exportamos al `Server A`:
 ```shell
-scp .\.ssh\id_ed25519.pub diego@192.168.56.10:~
+PS C:\Users\HP> scp .\.ssh\id_ed25519.pub diego@192.168.56.10:~
+diego@192.168.56.10's password:
+id_ed25519.pub
 ```
 Hacemos ssh:
 ```shell
-ssh diego@192.168.56.10
+PS C:\Users\HP> ssh diego@192.168.56.10
 ```
 Y desde el `Server A` introducimos la clave en las claves autorizadas:
 ```bash
-cat id_ed25519.pub >> .ssh/authorized_keys
+diego@Server-A:~$ cat id_ed25519.pub >> .ssh/authorized_keys
 ```
+Ahora ya podemos conectarnos de forma transparente desde el `Equipo Anfitrión` al `Server A`.
+
+A continuación, vamos a hacer lo mismo que hemos hecho con las claves pero desde el `Server A` al `Server B y C`.
+
+Generamos la clave en `Server A`:
+```bash
+diego@Server-A:~$ ssh-keygen
+```
+Y las exportamos al `Server B y C`.
+```bash
+diego@Server-A:~$ scp .ssh/id_ed25519.pub sysadmin@10.20.0.20:~
+sysadmin@10.20.0.20's password:
+id_ed25519.pub
+```
+```bash
+diego@Server-A:~$ scp .ssh/id_ed25519.pub sysadmin@10.30.0.20:~
+sysadmin@10.30.0.20's password:
+id_ed25519.pub
+```
+Entramos por ssh a `Server B`
+```bash
+diego@Server-A:~$ ssh sysadmin@10.20.0.20
+sysadmin@10.20.0.20's password:
+```
+E introducimos la clave en las claves autorizadas:
+```bash
+sysadmin@Server-B:~$ cat id_ed25519.pub >> .ssh/authorized_keys
+```
+Salimos.
+```bash 
+sysadmin@Server-B:~$ exit
+```
+Y nos conectamos por ssh a `Server C`:
+```bash
+diego@Server-A:~$ ssh sysadmin@10.30.0.20
+sysadmin@10.30.0.20's password:
+```
+Y hacemos lo mismo:
+```bash
+sysadmin@Server-C:~$ cat id_ed25519.pub >> .ssh/authorized_keys
+```
+Y ahora ya nos ponemos conectar por ssh de forma transparente desde el `Server A` al `Server B` y al `Server C`.
 
 --- 
 Contesta las siguientes preguntas:
 
 - Explica qué contienen y para qué sirven los siguientes ficheros relacionados con SSH:
   - `~/.ssh/id_rsa` y `~/.ssh/id_rsa.pub`
+  
+  ---
+  `id_rsa`: Contiene la clave privada del usuario.
+  `id_rsa.pub`: Contiene la clave publica del usuario.
+
+  ---
+
   - `~/.ssh/authorized_keys`
+    
+  ---
+  Es donde se almacenan las claves autorizadas para acceder a ese usuario por ssh de forma transparente.
+
+  ---
+
   - `~/.ssh/known_hosts`
+    
+  ---
+  Es donde se guardan a los sitios que te has conectado por ssh.
+
+  ---
+
   - `/etc/ssh/sshd_config`
+    
+  ---
+  Sirve para definir la configuración del servidor ssh.
+
+  ---
+
   - `/var/log/auth.log`
+    
+  ---
+  Es donde se guardan los intentos de autentificación y eventos de seguridad.
+
+  ---
+
   - `/etc/hosts.allow` y `/etc/hosts/deny`
+    
+  ---
+  Sirven para permitir o denegar conexiones por ssh.
+  
+  ---
+
+
 [VOLVER A INICIO](../../../index.md)
