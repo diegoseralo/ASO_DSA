@@ -12,9 +12,9 @@
 * [PR0205: Programación de tareas con cron](./UT02/Practicas/PR0205_Cron/PR0205_Cron.md) `REALIZADO`
 ---
 ### UT03
-* [PR0301: Ejercicios con el comando `if`](./UT03/Practicas/PR0301_Comando_IF/PR0301_Comando_IF.md)
-* [PR0302a: Ejercicios con `case`](./UT03/Practicas/PR0302a_Comando_Case/PR0302a_Comando_Case.mdd)
-* [PR0302b: Ejercicios con el comando `case`](./practicas/pr0302_case.md)
-* [PR0303: Ejercicios de bucles y condicionales](./practicas/pr0303_bucles_condicionales.md)
-* [PR0304: Ejercicios de entrada y salida](./practicas/pr0304_entrada_salida.md)
+* [PR0301: Ejercicios con el comando `if`](./UT03/Practicas/PR0301_Comando_IF/PR0301_Comando_IF.md) `PENDIENTE`
+* [PR0302a: Ejercicios con `case`](./UT03/Practicas/PR0302a_Comando_Case/PR0302a_Comando_Case.mdd) `PENDIENTE`
+* [PR0302b: Ejercicios con el comando `case`](./UT03/Practicas/PR0302b_Case/PR0302b_Case.md) `PENDIENTE`
+* [PR0303: Ejercicios de bucles y condicionales](./UT03/Practicas/PR0303_Bucles_Condicionales/PR0303_Bucles_Condicionales.md) `PENDIENTE`
+* [PR0304: Ejercicios de entrada y salida](./UT03/Practicas/PR0304_Entrada_Salida/PR0304_Entrada_Salida.md) `PENDIENTE`
 ---
