@@ -168,40 +168,41 @@ Añades:
 
 ---
 16.  El servicio `cron` se ayuda de una serie de ficheros y directorios que se encuentran en el directorio `/etc`. Explica la función de cada uno de los siguientes ficheros/directorios:
-    - `cron.d`:
-  
-    ---
-    Es similar a /etc/crontab, contiene archivos de tareas programadas.
 
-    ---
-    - `cron.allow`:
-  
-    ---
-    Si existe el archivo, solo los usuarios que esten dentro pueden crear, editar o borrar tareas programadas.
+        - `cron.d`:
 
-    ---
-    - `cron.deny`:
-  
-    ---
-    Los usuarios que esten dentro de este archivo no pueden crear, editar o borrar tareas programadas.
+        ---
+        Es similar a /etc/crontab, contiene archivos de tareas programadas.
 
-    ---
-    - `cron.daily`:
-  
-    ---
-    Se almacenan scripts que se ejecutan diariamente.
+        ---
+        - `cron.allow`:
 
-    ---
-    - `cron.hourly`:
-  
-    ---
-    Se almacenan scripts que se ejecutan cada hora.
+        ---
+        Si existe el archivo, solo los usuarios que esten dentro pueden crear, editar o borrar tareas programadas.
 
-    ---
-    - `cron.monthly`:
-  
-    ---
-    Se almacenan scripts que se ejecutan mensualmente.
-    
-    ---
+        ---
+        - `cron.deny`:
+
+        ---
+        Los usuarios que esten dentro de este archivo no pueden crear, editar o borrar tareas programadas.
+
+        ---
+        - `cron.daily`:
+
+        ---
+        Se almacenan scripts que se ejecutan diariamente.
+
+        ---
+        - `cron.hourly`:
+
+        ---
+        Se almacenan scripts que se ejecutan cada hora.
+
+        ---
+        - `cron.monthly`:
+
+        ---
+        Se almacenan scripts que se ejecutan mensualmente.
+
+        ---
 [VOLVER A INICIO](../../../index.md)
