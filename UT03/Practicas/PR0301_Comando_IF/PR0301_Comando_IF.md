@@ -22,7 +22,7 @@ Después, editamos el archivo con `nano` y añadiremos:
 ```bash
 #!/bin/bash
 
-echo "Introduce un número"
+echo -n "Introduce un número: "
 read num
 if [ $((num % 2)) -eq 0 ]
 then
@@ -34,6 +34,8 @@ fi
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Introduce un número: 5
+El número es impar
 ```
 ---
 
@@ -48,11 +50,27 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+echo -n "Introduce la ruta del archivo: "
+read ruta
+if [ -f $ruta ]
+then
+       if [ -r $ruta ]
+        then
+                echo "Existe el fichero y tiene permiso de lectura"
+        else
+                echo "Existe el fichero pero no tiene permiso de lectura"
+        fi
+else
+        echo "No existe el archivo o la ruta esta mal escrita"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Introduce la ruta del archivo: /home/usuario/script.sh
+Existe el fichero y tiene permiso de lectura
 ```
 
 ---
@@ -68,11 +86,29 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+echo -n "Introduce un número: "
+read num1
+echo -n "Introduce otro número: "
+read num2
+
+if [ $num1 -gt $num2 ]
+then
+        echo "$num1 es mayor que $num2"
+elif [ $num1 -lt $num2 ]
+then
+        echo "$num1 es menor que $num2"
+else
+        echo "$num1 es igual a $num2"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Introduce un número: 3
+Introduce otro número: 2
+3 es mayor que 2
 ```
 
 ---
@@ -88,11 +124,25 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+pass=1234
+
+echo -n "Introduce la contraseña predefinida: "
+read cntr
+
+if [ $cntr == $pass ]
+then
+        echo "La contraseña es correcta"
+else
+        echo "La contraseña es incorrecta"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Introduce la contraseña predefinida: 1234
+La contraseña es correcta
 ```
 
 ---
@@ -108,11 +158,28 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+echo -n "Introduce la ruta del archivo: "
+read ruta
+if [ -d $ruta ]
+then
+       if [ -w $ruta ]
+        then
+                echo "Existe el directorio y tiene permiso de escritura"
+        else
+                echo "Existe el directorio pero no tiene permiso de escritura"
+        fi
+else
+        mkdir -m u+w $ruta
+        echo "Directorio creado con permisos de escritura"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Introduce la ruta del archivo: Directorio1
+Existe el directorio y tiene permiso de escritura
 ```
 
 ---
@@ -128,11 +195,19 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+if [ $USER == root ]
+then
+       echo "Eres el usuario root"
+else
+        echo "Permiso denegado, tienes que ser el usuario root"
+fi
 ```
 Y ejecutamos el script:
 ```bash
-root@dsaserver:/home/usuario# ./script.sh
+usuario@dsaserver:~$ ./script.sh
+Permiso denegado, tienes que ser el usuario root
 ```
 
 ---
@@ -148,11 +223,32 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+echo -n "Introduce tu nota: "
+read nota
+if [ $nota -ge 5 ]
+then
+        if [ $nota -gt 10 ]
+        then
+                echo "Introduce una nota correcta"
+        else
+                echo "Aprobado"
+        fi
+else
+        if [ $nota -lt 0 ]
+        then
+                echo "Introduce una nota correcta"
+        else
+                echo "Suspenso"
+        fi
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Introduce tu nota: 5
+Aprobado
 ```
 
 ---
@@ -168,11 +264,23 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+esp=$(df -h / | tail -1 | cut -d " " -f 9)
+por=$( df -h / | tail -1 | cut -d " " -f 11 | cut -d "%" -f 1)
+
+if [ $por -lt 90 ]
+then
+        echo "El espacio libre del disco son $esp"
+else
+
+        echo "Cuidado, tienes solo $esp libre"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+El espacio libre del disco son 16G
 ```
 
 ---
@@ -188,11 +296,35 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+echo "Bienvenido al menu, seleccione una opción (Introduzca solo el número de la opción)"
+echo "1) Opción 1"
+echo "2) Opción 2"
+echo "3) Opción 3"
+read opc
+if [ $opc -eq 1 ]
+then
+        echo "Has escogido la opción 1"
+elif [ $opc -eq 2 ]
+then
+        echo "Has escogido la opción 2"
+elif [ $opc -eq 3 ]
+then
+        echo "Has escogido la opción 3"
+else
+        echo "Opción incorrecta"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Bienvenido al menu, seleccione una opción (Introduzca solo el número de la opción)
+1) Opción 1
+2) Opción 2
+3) Opción 3
+1
+Has escogido la opción 1
 ```
 
 ---
@@ -208,11 +340,31 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+echo -n "Buenas, introduzca su edad: "
+read edad
+if [ $edad -lt 18 ] && [ $edad -gt 0 ]
+then
+        echo "Aun eres menor de edad"
+elif [ $edad -ge 18 ] && [ $edad -lt 35 ]
+then
+        echo "Eres Joven"
+elif [ $edad -ge 35 ] && [ $edad -lt 65 ]
+then
+        echo "Ya eres un adulto"
+elif [ $edad -ge 65 ] && [ $edad -lt 120 ]
+then
+        echo "Usted ya esta mayor"
+else
+        echo "Introduzca una edad real"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Buenas, introduzca su edad: 20
+Eres Joven
 ```
 
 ---
@@ -228,11 +380,22 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+echo -n "Introduzca la ruta del archivo: "
+read arch
+if  [ -f $arch ]
+then
+        echo "El archivo $arch tiene $(wc -l $arch | cut -d ' ' -f 1) líneas."
+else
+        echo "El archivo no existe"
+fi
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+Introduzca la ruta del archivo: script.sh
+El archivo script.sh tiene 10 líneas.
 ```
 
 ---
