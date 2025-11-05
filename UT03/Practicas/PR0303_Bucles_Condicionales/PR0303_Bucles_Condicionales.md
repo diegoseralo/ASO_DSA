@@ -6,41 +6,228 @@ Realiza los siguientes ejercicios en Bash. Es necesario entregar **por lo menos 
 
 Usa un bucle for para contar del 1 al 10 e imprimir cada número en una línea nueva.
 
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+#!/bin/bash
+
+for num in {1..10}
+do
+        echo $num
+done
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+---
+
 ### 2. Sumar los primeros 50 números
 
 Usa `for` para sumar los primeros 50 números naturales y muestra el resultado.
+
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
 
 ### 3. Tabla de multiplicar
 
 Pide un número al usuario y usa for para imprimir su tabla de multiplicar del 1 al 10.
 
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
+
 ### 4. Imprimir cada letra
 
 Pide una palabra al usuario y usa for para imprimir cada letra en una línea nueva.
+
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
 
 ### 5. Contar números pares del 1 al 20 con while: 
 
 Usa while para mostrar los números pares entre 1 y 20.
 
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
+
 ### 6. Suma de dígitos
 
 Pide un número al usuario y usa while para sumar todos sus dígitos. Por ejemplo, 123 debería devolver 6.
+
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
 
 ### 7. Cuenta regresiva
 
 Pide al usuario un número inicial y usa until para hacer una cuenta regresiva hasta llegar a cero.
 
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
+
 ### 8. Imprimir solo archivos .txt
 
 Usa for para iterar sobre todos los archivos en un directorio y mostrar solo aquellos que terminen en .txt.
+
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
 
 ### 9. Factorial de un número
 
 Solicita un número al usuario y calcula su factorial usando un bucle for.
 
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
+
 ### 10. Verificar contraseña
 
 Usa until para pedir al usuario que ingrese una contraseña correcta, y repite hasta que la acierte.
+
+---
+
+Editamos el script:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo dejamos asi:
+```bash
+
+```
+Lo guardamos y ejecutamos:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+```
+
+---
+
+## Opcionales
 
 ### 11. Adivinar un número
 
@@ -81,5 +268,3 @@ Usa until para pedir un número entre 1 y 10. Repite hasta que el usuario ingres
 ### 20. Script de copia de seguridad
 
 Crea un script que recorra un directorio y copie todos los archivos .txt a una carpeta backup. Usa for para la iteración y if para verificar el tipo de archivo.
-
-[VOLVER A INICIO](../../../index.md)
