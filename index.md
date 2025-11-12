@@ -13,9 +13,7 @@
 ---
 ### UT03
 * [PR0301: Ejercicios con el comando IF](./UT03/Practicas/PR0301_Comando_IF/PR0301_Comando_IF.md) `REALIZADO`
-* [PR0302a: Ejercicios con CASE](./UT03/Practicas/PR0302a_Comando_Case/PR0302a_Comando_Case.mdd) `EN PROCESO`
-* [PR0302b: Ejercicios con el comando CASE](./UT03/Practicas/PR0302b_Case/PR0302b_Case.md) `EN PROCESO`
-* [PR0303: Ejercicios de bucles y condicionales](./UT03/Practicas/PR0303_Bucles_Condicionales/PR0303_Bucles_Condicionales.md) `PENDIENTE`
-* [PR0304: Ejercicios de entrada y salida](./UT03/Practicas/PR0304_Entrada_Salida/PR0304_Entrada_Salida.md) `PENDIENTE`
+* [PR0302: Ejercicios con CASE](./UT03/Practicas/PR0302a_Comando_Case/PR0302_Comando_Case.mdd) `REALIZADO`
+* [PR0303: Ejercicios de bucles y condicionales](./UT03/Practicas/PR0303_Bucles_Condicionales/PR0303_Bucles_Condicionales.md) `EN PROCESO`
 
 ---

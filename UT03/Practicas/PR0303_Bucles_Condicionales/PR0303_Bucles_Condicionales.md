@@ -8,32 +8,19 @@ Usa un bucle for para contar del 1 al 10 e imprimir cada número en una línea n
 
 ---
 
-Editamos el script:
+Creamos un archivo llamado `script.sh` y le añadimos permiso de ejecucion a el usuario.
 ```bash
-root@dsaserver:/home/usuario# nano script.sh
+root@dsaserver:/home/usuario# touch script.sh
+root@dsaserver:/home/usuario# chmod u+x script.sh
 ```
-Y lo dejamos asi:
+Después, editamos el archivo con `nano` y añadiremos:
 ```bash
-#!/bin/bash
 
-for num in {1..10}
-do
-        echo $num
-done
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+
 ```
 
 ---
@@ -43,18 +30,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Usa `for` para sumar los primeros 50 números naturales y muestra el resultado.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -64,18 +51,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Pide un número al usuario y usa for para imprimir su tabla de multiplicar del 1 al 10.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -85,18 +72,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Pide una palabra al usuario y usa for para imprimir cada letra en una línea nueva.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -106,18 +93,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Usa while para mostrar los números pares entre 1 y 20.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -127,18 +114,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Pide un número al usuario y usa while para sumar todos sus dígitos. Por ejemplo, 123 debería devolver 6.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -148,18 +135,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Pide al usuario un número inicial y usa until para hacer una cuenta regresiva hasta llegar a cero.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -169,18 +156,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Usa for para iterar sobre todos los archivos en un directorio y mostrar solo aquellos que terminen en .txt.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -190,18 +177,18 @@ root@dsaserver:/home/usuario# ./script.sh
 Solicita un número al usuario y calcula su factorial usando un bucle for.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
@@ -211,21 +198,22 @@ root@dsaserver:/home/usuario# ./script.sh
 Usa until para pedir al usuario que ingrese una contraseña correcta, y repite hasta que la acierte.
 
 ---
-
-Editamos el script:
+Editamos el archivo `script.sh`:
 ```bash
 root@dsaserver:/home/usuario# nano script.sh
 ```
-Y lo dejamos asi:
+Y lo editas asi:
 ```bash
 
 ```
-Lo guardamos y ejecutamos:
+Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
+
 ```
 
 ---
+
 
 ## Opcionales
 
@@ -233,9 +221,43 @@ root@dsaserver:/home/usuario# ./script.sh
 
 Crea un juego con while en el que el usuario intenta adivinar un número entre 1 y 10. Repite hasta que lo adivine.
 
+---
+Editamos el archivo `script.sh`:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo editas asi:
+```bash
+
+```
+Y ejecutamos el script:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+
+```
+
+---
+
 ### 12. Mostrar la fecha n veces
 
 Pide al usuario un número n y usa for para mostrar la fecha y hora actual n veces.
+
+---
+Editamos el archivo `script.sh`:
+```bash
+root@dsaserver:/home/usuario# nano script.sh
+```
+Y lo editas asi:
+```bash
+
+```
+Y ejecutamos el script:
+```bash
+root@dsaserver:/home/usuario# ./script.sh
+
+```
+
+---
 
 ### 13. Promedio de números ingresados
 
@@ -268,3 +290,5 @@ Usa until para pedir un número entre 1 y 10. Repite hasta que el usuario ingres
 ### 20. Script de copia de seguridad
 
 Crea un script que recorra un directorio y copie todos los archivos .txt a una carpeta backup. Usa for para la iteración y if para verificar el tipo de archivo.
+
+[VOLVER A INICIO](../../../index.md)
