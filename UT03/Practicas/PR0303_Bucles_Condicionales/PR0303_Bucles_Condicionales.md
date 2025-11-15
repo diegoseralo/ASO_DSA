@@ -15,12 +15,26 @@ root@dsaserver:/home/usuario# chmod u+x script.sh
 ```
 Después, editamos el archivo con `nano` y añadiremos:
 ```bash
+#!/bin/bash
 
+for i in {1..10}
+do
+  echo $i
+done
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
 ```
 
 ---
@@ -36,12 +50,20 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+suma=0
+for i in {1..50}
+do
+  suma=$((suma + i))
+done
+
+echo "La suma de los primeros 50 numeros es: $suma"
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+La suma de los primeros 50 numeros es: 1275
 ```
 
 ---
@@ -57,12 +79,29 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+read -p "Introduce un numero: " num
+
+for i in {1..10}
+do
+  echo "$num x $i = $((num * i))"
+done
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+Introduce un numero: 6
+6 x 1 = 6
+6 x 2 = 12
+6 x 3 = 18
+6 x 4 = 24
+6 x 5 = 30
+6 x 6 = 36
+6 x 7 = 42
+6 x 8 = 48
+6 x 9 = 54
+6 x 10 = 60
 ```
 
 ---
@@ -78,12 +117,24 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
+
+read -p "Introduce una palabra: " palabra
+
+for ((i=0; i<${#palabra}; i++))
+do
+  echo "${palabra:$i:1}"
+done
 
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+Introduce una palabra: hola
+h
+o
+l
+a
 ```
 
 ---
@@ -99,12 +150,31 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
+
+num=1
+while [ $num -le 20 ]
+do
+  if [ $((num % 2)) -eq 0 ]; then
+    echo $num
+  fi
+  num=$((num + 1))
+done
 
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
 ```
 
 ---
@@ -120,12 +190,25 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+read -p "Introduce un numero: " num
+suma=0
+
+while [ $num -gt 0 ]
+do
+  digito=$((num % 10))
+  suma=$((suma + digito))
+  num=$((num / 10))
+done
+
+echo "La suma de los digitos es: $suma"
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+Introduce un numero: 123
+La suma de los digitos es: 6
 ```
 
 ---
@@ -141,12 +224,26 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+read -p "Introduce un numero inicial: " num
+
+until [ $num -lt 0 ]
+do
+  echo $num
+  num=$((num - 1))
+done
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+Introduce un numero inicial: 5
+5
+4
+3
+2
+1
+0
 ```
 
 ---
@@ -162,12 +259,19 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+for archivo in *
+do
+  if [[ $archivo == *.txt ]]; then
+    echo $archivo
+  fi
+done
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+log.251027.txt
 ```
 
 ---
@@ -183,12 +287,23 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+read -p "Introduce un numero: " num
+factorial=1
+
+for ((i=1; i<=num; i++))
+do
+  factorial=$((factorial * i))
+done
+
+echo "El factorial de $num es: $factorial"
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+Introduce un numero: 5
+El factorial de 5 es: 120
 ```
 
 ---
@@ -204,12 +319,32 @@ root@dsaserver:/home/usuario# nano script.sh
 ```
 Y lo editas asi:
 ```bash
+#!/bin/bash
 
+contrasena="1234"
+entrada=""
+
+until [ "$entrada" == "$contrasena" ]
+do
+  read -p "Introduce la contrasena: " entrada
+  if [ "$entrada" != "$contrasena" ]; then
+    echo "Contrasena incorrecta."
+  fi
+done
+
+echo "Acceso concedido."
 ```
 Y ejecutamos el script:
 ```bash
 root@dsaserver:/home/usuario# ./script.sh
-
+Introduce la contrasena: 4567
+Contrasena incorrecta.
+Introduce la contrasena: 4567
+Contrasena incorrecta.
+Introduce la contrasena: 7463463
+Contrasena incorrecta.
+Introduce la contrasena: 1234
+Acceso concedido.
 ```
 
 ---
@@ -221,43 +356,9 @@ root@dsaserver:/home/usuario# ./script.sh
 
 Crea un juego con while en el que el usuario intenta adivinar un número entre 1 y 10. Repite hasta que lo adivine.
 
----
-Editamos el archivo `script.sh`:
-```bash
-root@dsaserver:/home/usuario# nano script.sh
-```
-Y lo editas asi:
-```bash
-
-```
-Y ejecutamos el script:
-```bash
-root@dsaserver:/home/usuario# ./script.sh
-
-```
-
----
-
 ### 12. Mostrar la fecha n veces
 
 Pide al usuario un número n y usa for para mostrar la fecha y hora actual n veces.
-
----
-Editamos el archivo `script.sh`:
-```bash
-root@dsaserver:/home/usuario# nano script.sh
-```
-Y lo editas asi:
-```bash
-
-```
-Y ejecutamos el script:
-```bash
-root@dsaserver:/home/usuario# ./script.sh
-
-```
-
----
 
 ### 13. Promedio de números ingresados
 
