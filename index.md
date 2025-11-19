@@ -17,3 +17,8 @@
 * [PR0303: Ejercicios de bucles y condicionales](./UT03/Practicas/PR0303_Bucles_Condicionales/PR0303_Bucles_Condicionales.md) `REALIZADO`
 
 ---
+### UT05
+* [PR0501: Implantación del dominio](./UT05/Practicas/PR0501_Implantacion_del_Dominio/PR0501_Implantacion%20_del_Dominio.md) `EN PROCESO`
+* [PR0502: Carpetas personales y compartidas por un grupo](./UT05/Practicas/PR0502_Carpetas_Personales_y_Compartidas_por_un_Grupo/PR0502_Carpetas_Personales_y_Compartidas_por_un_Grupo.md) `EN PROCESO`
+
+---
