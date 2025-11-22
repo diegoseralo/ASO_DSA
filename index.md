@@ -20,5 +20,6 @@
 ### UT05
 * [PR0501: Implantación del dominio](./UT05/Practicas/PR0501_Implantacion_del_Dominio/PR0501_Implantacion%20_del_Dominio.md) `EN PROCESO`
 * [PR0502: Carpetas personales y compartidas por un grupo](./UT05/Practicas/PR0502_Carpetas_Personales_y_Compartidas_por_un_Grupo/PR0502_Carpetas_Personales_y_Compartidas_por_un_Grupo.md) `EN PROCESO`
+* [PR0503: GPOs](./UT05/Practicas/PR0503_GPOs/PR0503_GPOs.md) `EN PROCESO`
 
 ---

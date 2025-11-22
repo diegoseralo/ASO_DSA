@@ -41,6 +41,36 @@ Deberás realizar los siguientes pasos en tu máquina virtual de Windows Server.
 
 Promueve el servidor a controlador de dominio configurando un **nuevo bosque** con el nombre de dominio raíz: **`iessanandres.local`**.
 
+---
+
+Primero hay que asignarle un nombre de equipo, en administrador de servidor -> Servidor Local -> Nombre de equipo. En el cuadro de dialogo que nos sale das a cambiar y cambias el nombre:
+
+![nombre equipo](imagenes/image1.png)
+
+Después, hay que asignar una IP estatica, yendo a Panel de control -> Redes e Internet -> Centro de redes y recursos compartidos. Entras en las propiedades del adaptador correspondiente y asignas una IP estatica a la IPv4:
+
+![ip estatica](imagenes/image.png)
+
+Ahora, vamos a Agregar el rol al servidor desde el administrador. Donde vamos a agregar el rol *Servicios de dominio de Active Directory*
+
+![agregar rol](imagenes/image2.png)
+
+Al instalarlo se nos instala tambien el servicio DNS.
+
+A Continuación, tenemos que configurar el controlador de dominio:
+
+Agregamos un nuevo bosque con el nombre de *iessanandres.local* :
+
+![nuevo bosque](imagenes/image3.png)
+
+Añades una contraseña:
+
+![contraseña](imagenes/image4.png)
+
+Continuas e instalas la configuración. Y reinicias el ser idor.
+
+--- 
+
 #### Tarea 2: Diseño de la Estructura de Unidades Organizativas (UO)
 
 Usando la consola *"Usuarios y equipos de Active Directory" (`dsa.msc`)*, debes crear una jerarquía de Unidades Organizativas que refleje la estructura del centro.
@@ -70,6 +100,12 @@ Usando la consola *"Usuarios y equipos de Active Directory" (`dsa.msc`)*, debes 
         - `Despachos`
 
 
+---
+
+
+
+--- 
+
 #### Tarea 3: Creación de Usuarios y Grupos
 
 Debes poblar la estructura con algunos usuarios y grupos de ejemplo.
@@ -94,6 +130,12 @@ Debes poblar la estructura con algunos usuarios y grupos de ejemplo.
     - Haz que `GRP_Alumnos_DAM` y `GRP_Alumnos_AFI` sean miembros del grupo `GRP_Alumnos_General`.
 
 
+---
+
+
+
+--- 
+
 #### Tarea 4: Restricción de Horas de Inicio de Sesión
 
 La dirección del centro ha solicitado que los alumnos solo puedan usar los equipos del dominio durante el horario lectivo.
@@ -103,3 +145,11 @@ La dirección del centro ha solicitado que los alumnos solo puedan usar los equi
 3.  Ve a la pestaña **"Cuenta"** y haz clic en **"Horas de inicio de sesión"**.
 4.  Configura las horas para que **solo se permita el inicio de sesión de Lunes a Viernes, de 8:00 a 15:00**. El resto del tiempo debe estar denegado.
 5.  Verifica que el personal (profesor y PAS) sigue teniendo acceso 24/7 (que es la configuración por defecto).
+
+---
+
+
+
+--- 
+
+[VOLVER A INICIO](../../../index.md)
