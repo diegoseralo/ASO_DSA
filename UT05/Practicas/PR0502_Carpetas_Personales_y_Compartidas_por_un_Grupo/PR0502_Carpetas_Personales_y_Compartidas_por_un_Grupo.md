@@ -31,7 +31,29 @@ Realiza los siguiente pasos en tu dominio:
 - Luego crea otra llamada `práctica` en la que tengan permiso de lectura y escritura
 
 
-
 ## Entrega de la tarea
 
 Debes documentar los pasos más relevantes de la misma y entregarla en el repositorio.
+
+---
+
+En el administrador del servidor añadimos el rol de :
+
+![agregar rol](imagenes/image.png)
+
+Una vez instalado, creas estos directorios en la carpeta c:/share :
+
+![directorios](imagenes/image1.png)
+
+Entras en las propiedades de la carpeta Users -> Compartir -> Uso compartido avanzado ... Donde marcas compartir esta carpeta, pones de nombre del recurso compartido `users$` y entras en permisos y los dejas asi:
+
+![permisos carpeta](imagenes/image2.png)
+
+Haces lo mismo en la carpeta apuntes pero solo dando permiso de lectura y en la carpeta practica permisos de lectura y cambiar.
+
+Ahora en la carpeta users vamos a las Propiedades -> Seguridad -> Opciones avanzadas -> y deshabilitas la herencia.
+
+Después, quitas permisos a Usuario y añades permisos a Usuarios de dominio asi:
+
+![permisos](imagenes/image3.png)
+
