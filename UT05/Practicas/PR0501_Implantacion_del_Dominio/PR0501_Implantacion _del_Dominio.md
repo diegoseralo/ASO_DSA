@@ -139,8 +139,40 @@ Debes poblar la estructura con algunos usuarios y grupos de ejemplo.
 
 
 ---
+Vamos a crear los usuario del enunciado:
+
+![creacion usuario](imagenes/image7.png)
+
+E introduces las credenciales del usuario:
+
+![credenciales usuario](imagenes/image8.png)
+
+![contraseña usuario](imagenes/image9.png)
+
+Y haces lo mismo con todos los usuarios:
+
+![usuarios](imagenes/image10.png)
+
+Después, vamos a crear los grupos:
+
+![creacion grupos](imagenes/image11.png)
+
+![credenciales grupo](imagenes/image12.png)
+
+![grupos creados](imagenes/image13.png)
+
+Ahora añadimos los grupos a sus grupos superiores:
 
 
+![añadir grupos](imagenes/image14.png)
+
+![elegir grupo](imagenes/image15.png)
+
+Y haces lo mismo con los usuarios creados anteriormente:
+
+![añadir grupos usuarios](imagenes/image16.png)
+
+![usuarios](imagenes/image17.png)
 
 --- 
 
@@ -156,7 +188,9 @@ La dirección del centro ha solicitado que los alumnos solo puedan usar los equi
 
 ---
 
+Seleccionas los alumnos -> Propiedades -> Cuenta -> Horas de inicio de sesión ...
 
+![Restriccion horas](imagenes/image18.png)
 
 --- 
 
