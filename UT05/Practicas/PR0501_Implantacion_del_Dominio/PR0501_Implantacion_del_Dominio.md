@@ -192,6 +192,10 @@ Seleccionas los alumnos -> Propiedades -> Cuenta -> Horas de inicio de sesión .
 
 ![Restriccion horas](imagenes/image18.png)
 
+![comprobación](imagenes/image19.png)
+
+![comprobación](imagenes/image20.png)
+
 --- 
 
 [VOLVER A INICIO](../../../index.md)
