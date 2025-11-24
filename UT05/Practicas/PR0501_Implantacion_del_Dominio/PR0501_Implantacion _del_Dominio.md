@@ -89,7 +89,7 @@ Usando la consola *"Usuarios y equipos de Active Directory" (`dsa.msc`)*, debes 
             - `AFI`
             - `GAD`
             - `SCO`
-    . **`Profesorado`**
+    - **`Profesorado`**
         - `Informatica`
         - `Administracion`
     - **`Personal_PAS`** (Personal de Administración y Servicios)
@@ -102,7 +102,15 @@ Usando la consola *"Usuarios y equipos de Active Directory" (`dsa.msc`)*, debes 
 
 ---
 
+Vas a al administrador de servidor -> Herramientas -> Usuarios y equipos de Active Directory.
 
+Clic dercho en iessanandres.local -> Nuevo -> Unidad Organizativa.
+
+![creacion estructura](imagenes/image5.png)
+
+Y creas toda la estructura como en el enunciado. Quedaria asi:
+
+![estructura completa](imagenes/image6.png)
 
 --- 
 
