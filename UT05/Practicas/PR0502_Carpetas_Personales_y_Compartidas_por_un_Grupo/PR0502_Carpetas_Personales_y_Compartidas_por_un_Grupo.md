@@ -9,8 +9,6 @@ Práctica:                   PR0502. Carpetas personales y compartidas por grupo
 Resultados de aprendizaje:  
 ```
 
-
-
 # PR0502: Carpetas personales y compartidas por un grupo
 
 Realiza los siguiente pasos en tu dominio:
@@ -29,7 +27,6 @@ Realiza los siguiente pasos en tu dominio:
 
 - Crea en `C:\shares` una carpeta llamada `apuntes` y realiza las tareas necesarias para que los alumnos de ASIR puedan acceder a ella como un espacio de almacenamiento compartido con permiso de lectura.
 - Luego crea otra llamada `práctica` en la que tengan permiso de lectura y escritura
-
 
 ## Entrega de la tarea
 
@@ -51,9 +48,27 @@ Entras en las propiedades de la carpeta Users -> Compartir -> Uso compartido ava
 
 Haces lo mismo en la carpeta apuntes pero solo dando permiso de lectura y en la carpeta practica permisos de lectura y cambiar.
 
+![permisos](imagenes/image5.png)
+![permisos](imagenes/image6.png)
+
 Ahora en la carpeta users vamos a las Propiedades -> Seguridad -> Opciones avanzadas -> y deshabilitas la herencia.
 
-Después, quitas permisos a Usuario y añades permisos a Usuarios de dominio asi:
+Después, quitas permisos a Usuario y añades permisos a  asi:
 
 ![permisos](imagenes/image3.png)
 
+Y en las carpetas apuntes vamos a hacer lo mismo pero al GRP_Alumnos_ASIR :
+
+![permisos](imagenes/image7.png)
+
+Ahora en la carpeta practicas lo mismo pero dando permisos de modificar :
+
+![permisos](imagenes/image8.png)
+
+Vamos a la herramienta usuarios y grupos de active directory y en las propiedades de los usuarios de asir ->
+
+![carpeta particular](imagenes/image4.png)
+
+---
+
+[VOLVER A INICIO](../../../index.md)
