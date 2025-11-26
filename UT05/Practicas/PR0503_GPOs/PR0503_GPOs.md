@@ -52,11 +52,11 @@ Vas a Administrador del Servidor -> Herramientas -> Administración de directiva
 ![Nombre GPO](imagenes/image1.png)
 
 Haces clic derecho en el GPO creado y lo editas para hacer los siguiente:
-Configuración de usuario -> Directivas -> Plantillas Administrativas -> Panel de control -> Habilitas la politica de prohibir el acceso al Panel de control y a la configuracion del equipo :
+Configuración de usuario -> Directivas -> Plantillas Administrativas -> Panel de control -> Habilitas la politica de `Prohibir el acceso al Panel de control y a la configuracion del equipo` :
 
 ![Habilitar politica](imagenes/image2.png)
 
-Después, desde panel de control -> componentes de windows -> explorador de archivos :
+Después, desde panel de control -> componentes de windows -> explorador de archivos. Donde habilitas la politica `Ocultar estas unidades especificas en mi PC`:
 
 ![habilitar politica](imagenes/image3.png)
 
@@ -99,6 +99,20 @@ El objetivo es aplicar configuraciones de seguridad a nivel de máquina y mapear
     * Navega a *Configuración de seguridad > Directivas locales > Opciones de seguridad*.
     * Establece **"Cuentas: Cambiar nombre de la cuenta de administrador"** a un nombre no estándar (ej. **`AdministradorLocal01`**).
 
+---
+
+Administrador del Servidor -> Herramientas -> Administración de Directivas de Grupo. Y creas el GPO vinculado en _Equipos -> Aulas_Informatica: 
+
+![Crear GPO](imagenes/image6.png)
+
+Editas el GPo y vas a Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas de cuenta -> Directiva de Contraseñas. Donde establecemos la `longitud minima de la contraseña` en *8 caracteres* :
+
+![directiva contraseñas](imagenes/image7.png)
+
+Ahora, vamos a cambiar otra directiva en Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas locales -> Opciones de Seguridad. Y vamos a establecer la directiva `Cuentas: cambiar el nombre de la cuenta administrador` como *AdministradorLocal01*.
+
+---
+
 ### Tarea 2.2: Mapeo de unidad específica (UO Administración)
 
 Esta política debe mapear una unidad de red Z: para el *alumnado de la familia de Administración*.
@@ -111,7 +125,30 @@ Esta política debe mapear una unidad de red Z: para el *alumnado de la familia 
     - **Etiqueta:** `Recursos_ADM`
     - **Letra de Unidad:** Z:
 
+---
+
+Administrador del Servidor -> Herramientas -> Administración de Directivas de Grupo. Y creas el GPO vinculado en Alumnado -> Administración :
+
+![Crear GPO](imagenes/image8.png)
+
+Editas el GPo y vas a Configuración de Usuario -> Preferencias -> Configuración de Windows -> Asignaciones de Unidad.
+Vamos a crear una nueva asignacion de unidad en `\\Diego\compartido\administracion\` (Suponiendo que existe y esta compartida correctamente):
+
+![Crear asignacion](imagenes/image9.png)
+
+---
+
 ### Tarea 2.3: Verificación de Recurso
 
 1.  Inicia sesión con un alumno de informática (ej. `alu_dam_1`). **Verifica que NO tiene la unidad Z:.**
 2.  Inicia sesión con un alumno de administración (ej. `alu_afi_1`). **Verifica que SÍ aparece la unidad Z:.**
+
+---
+
+![Verificación](imagenes/image10.png)
+
+![Verificacion](imagenes/image11.png)
+
+---
+
+[VOLVER A INICIO](../../../index.md)
