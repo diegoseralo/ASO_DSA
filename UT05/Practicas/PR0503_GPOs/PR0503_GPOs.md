@@ -56,6 +56,12 @@ Configuración de usuario -> Directivas -> Plantillas Administrativas -> Panel d
 
 ![Habilitar politica](imagenes/image2.png)
 
+Ahora, vas a Configuración de usuario -> Directivas -> Plantillas Administrativas -> Active Desktop -> Active Desktop -> Habilitas la politica de `Tapiz del Escritorio` donde vas a tener que asignar la ruta de la imagen de fondo que quieres :
+
+![politica fondo](imagenes/image12.png)
+
+
+
 Después, desde panel de control -> componentes de windows -> explorador de archivos. Donde habilitas la politica `Ocultar estas unidades especificas en mi PC`:
 
 ![habilitar politica](imagenes/image3.png)
