@@ -11,7 +11,7 @@ Resultados de aprendizaje:  RA1
 
 
 
-# PR0503: Directivas de seguridad, GPP y Filtros WMI
+# PR0504: Directivas de seguridad, GPP y Filtros WMI
 
 Continuamos con la administración del dominio **`iessanandres.local`**. La dirección del centro quiere endurecer la seguridad de los equipos basándose en las normativas de seguridad y mejorar la experiencia de usuario desplegando configuraciones dinámicas mediante Preferencias (GPPs).
 
@@ -26,10 +26,32 @@ Continuamos con la administración del dominio **`iessanandres.local`**. La dire
 
 Debes crear una GPO llamada **`GPO_Harden_Security_Equipos`** vinculada a la UO `_Equipos`. Configura las siguientes directivas:
 
+---
+
+Administrador del Servidor -> Herramientas -> Administrador de directivas de grupo -> _Equipos -> Y creas una nueva directiva:
+
+![Crear GPO](imagenes/image.png)
+
+Y la editas:
+
+---
+
 ### 1.1. Protección de cuentas y acceso
 
 - **Renombrar cuenta de administrador:** por seguridad, la cuenta local `Administrador` es un objetivo común de ataques. Configura la directiva para que esta cuenta se renombre a **`Admin_Local_IES`**.
 - **Inicio de sesión interactivo:** configura el equipo para que **no requiera** pulsar `Ctrl+Alt+Supr` para iniciar sesión.
+
+---
+
+Vamos a Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas locales -> Opciones de Seguridad. Y vamos a establecer la directiva `Cuentas: cambiar el nombre de la cuenta administrador` como *Admin_Local_IES*.
+
+![politica](imagenes/image1.png)
+
+Después, en la misma ruta habilitas `Inicio de sesión interactivo: no requerir Ctrl+Alt+Supr` :
+
+![politica](imagenes/image2.png)
+
+---
 
 ### 1.2. Aviso legal (Consentimiento Informado)
 
@@ -37,12 +59,22 @@ Debes crear una GPO llamada **`GPO_Harden_Security_Equipos`** vinculada a la UO 
     - **Título:** `Aviso de Seguridad del IES San Andrés`
     - **Texto:** `El uso de este equipo está monitorizado. El acceso está restringido únicamente a personal y alumnado autorizado.`
 
+---
+
+
+
+---
+
 ### 1.3. Privacidad y apagado
 
 - **Privacidad:** Configura el inicio de sesión interactivo para que **no muestre el último nombre de usuario** que inició sesión.
 - **Apagado:** Deshabilita la opción que permite **apagar el sistema sin tener que iniciar sesión**. Queremos evitar que alumnos apaguen equipos de aulas remotamente o desde la pantalla de bloqueo sin identificarse.
 
+---
 
+
+
+---
 
 ## Parte 2: Preferencias de Grupo (GPP) y segmentación
 
