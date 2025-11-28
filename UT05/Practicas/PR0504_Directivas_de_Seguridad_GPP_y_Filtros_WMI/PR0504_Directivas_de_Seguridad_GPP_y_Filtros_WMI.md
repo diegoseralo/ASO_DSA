@@ -43,7 +43,7 @@ Y la editas:
 
 ---
 
-Vamos a Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas locales -> Opciones de Seguridad. Y vamos a establecer la directiva `Cuentas: cambiar el nombre de la cuenta administrador` como *Admin_Local_IES*.
+Vamos a Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas locales -> Opciones de Seguridad -> Y vamos a establecer la directiva `Cuentas: cambiar el nombre de la cuenta administrador` como *Admin_Local_IES*.
 
 ![politica](imagenes/image1.png)
 
@@ -61,7 +61,11 @@ Después, en la misma ruta habilitas `Inicio de sesión interactivo: no requerir
 
 ---
 
+Dirigete a Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas locales -> Opciones de Seguridad -> Donde habilitamos `Inicio de sesión interactivo: titulo del mensaje para los usuarios que intentan iniciar sesion` y `Inicio de sesion interactivo: texto del mensaje para los usuarios que intentan iniciar sesion` :
 
+![Titulo mensaje](imagenes/image3.png)
+
+![Texto mensaje](imagenes/image4.png)
 
 ---
 
@@ -72,13 +76,28 @@ Después, en la misma ruta habilitas `Inicio de sesión interactivo: no requerir
 
 ---
 
+Siguiendo donde antes en Opciones de Seguridad, y habilitas `Inicio de sesion interactivo: No mostrar último inicio de sesión` :
 
+![habilitar directiva](imagenes/image5.png)
+
+Ádemas, vas a deshabilitar la directiva `Apagado: permitir apagar el sistema sin tener que inciar sesion` :
+
+![Habilitar directiva](imagenes/image6.png)
 
 ---
 
 ## Parte 2: Preferencias de Grupo (GPP) y segmentación
 
 En esta sección usarás **Preferencias** (Configuración de usuario -> Preferencias) en lugar de Directivas (Policies). Debes crear una GPO llamada **`GPO_Configuracion_Usuario_Dinamica`** y vincularla a la raíz del dominio (o a las UOs de usuarios pertinentes).
+
+---
+
+Administrador del Servidor -> Herramientas -> Administrador de directivas de grupo -> raiz del dominio -> Y creas una nueva directiva:
+
+![Crear GPO](imagenes/image7.png)
+ 
+
+---
 
 ### 2.1. Mapeo de unidades de red (Drive Maps)
 
@@ -87,6 +106,20 @@ Los profesores necesitan acceder a una carpeta compartida para sus materiales, p
 - Crea una unidad de red mapeada (ej. letra **`P:`**) que apunte a una carpeta compartida del servidor (puedes crear una carpeta compartida llamada `Recursos_Profesores` en el DC).
 - **Requisito:** Usa **Item-Level Targeting (Destinatarios)** para que esta unidad **SOLO** se monte si el usuario pertenece al grupo `GRP_Profesores_General`.
 
+---
+
+Creas la carpeta `Recursos_Profesores` y la compartes como en practicas anteriores.
+
+Ahora editas el GPO creado antes, donde iremos a Configuracion de usuario -> Preferencias -> Configuración de Windows -> Asignaciones de unidades -> Y creamos una nueva :
+
+![Nueva unidad asignada](imagenes/image8.png)
+
+También, en la pestaña comunes, marcas la opcion de destinatario y entras en el apartado de estos. Donde añadiremos al GPU de profesores :
+
+![GRP_Profesores](imagenes/image9.png)
+
+---
+
 ### 2.2. Accesos Directos (Shortcuts)
 
 El departamento de informática quiere un acceso directo a la Intranet en el escritorio, pero solo para los alumnos del ciclo **DAM**, ya que son los que están desarrollando la nueva web.
@@ -94,6 +127,17 @@ El departamento de informática quiere un acceso directo a la Intranet en el esc
 - Crea un acceso directo en el Escritorio que apunte a `http://intranet.iessanandres.local` (puedes inventar la URL).
 - **Requisito:** Usa **Item-Level Targeting** para que este acceso directo **SOLO** aparezca a los miembros del grupo `GRP_Alumnos_DAM`.
 
+---
+
+Vamos a Configuracion de usuario -> Preferencias -> Configuración de Windows -> Accesos Directos -> Y creamos uno nuevo :
+
+![Acceso Directo](imagenes/image10.png)
+
+Y como en la anterior, vamos a elegir el destinatario pero esta ves GRP_Alumnos_DAM :
+
+![GRP_Alumnos_DAM](imagenes/image11.png)
+
+---
 
 ## Parte 3: Filtrado WMI Avanzado
 
