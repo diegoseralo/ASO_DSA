@@ -152,6 +152,25 @@ Existe una directiva de seguridad llamada **"Apagado: borrar el archivo de pagin
 3.  Crea y vincula un **Filtro WMI** que haga que esta GPO solo se aplique a equipos que tengan **más de 4 GB de memoria RAM**.
     * *Pista:* Tendrás que consultar la clase `Win32_ComputerSystem` y la propiedad `TotalPhysicalMemory` (el valor se expresa en bytes).
 
+---
+
+Administrador del Servidor -> Herramientas -> Administrador de directivas de grupo -> raiz del dominio -> Y creas una nueva directiva:
+
+![creacion GPO](imagenes/image12.png)
+
+La editas y vas a Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas locales -> Opciones de Seguridad -> Donde habilitamos `Apagado: borrar el archivo depaginación de la memoria virtual`:
+
+![habilitar directiva](imagenes/image13.png)
+
+Ahora, vuelves al Administrador de directivas de grupo y en parte de Filtro WMI creas uno:
+
+![crear filtro](imagenes/image14.png)
+
+Después, lo asocias al GPO creado anteriormente:
+
+![asociar filtro](imagenes/image15.png)
+---
+
 ### 3.2. Diferenciación de Sistema Operativo (Workstation vs Server)
 
 Queremos aplicar una configuración de **Control de Cuentas de Usuario (UAC)** específica, desactivando la "Detección de instalaciones de aplicaciones", pero **SOLO a los equipos Clientes (Windows 10/11)**, nunca a los Servidores del dominio.
@@ -160,3 +179,25 @@ Queremos aplicar una configuración de **Control de Cuentas de Usuario (UAC)** e
 2.  Configura la directiva de UAC para deshabilitar la detección de instalaciones.
 3.  Crea y vincula un **Filtro WMI** que seleccione únicamente sistemas operativos de escritorio (no servidores).
     - *Pista:* Consulta la clase `Win32_OperatingSystem` y la propiedad `ProductType`. El valor `1` corresponde a Workstation (Cliente), mientras que `2` y `3` son Servidores.
+
+---
+
+Administrador del Servidor -> Herramientas -> Administrador de directivas de grupo -> raiz del dominio -> Y creas una nueva directiva:
+
+![crear GPO](imagenes/image16.png)
+
+La editas y te diriges a Configuración de Equipo -> Directivas -> Configuración de Windows -> Configuración de Seguridad -> Directivas locales -> Opciones de Seguridad -> Donde deshabilitamos `Control de cuentas de ususario: detectar instalaciones de aplicaciones y pedir confirmacion de elevación`:
+
+![deshabilitar directiva](imagenes/image17.png)
+
+Depués, vuelves a crear un Filtro WMI con las siguientes consutlas:
+
+![Crear Filtro](imagenes/image18.png)
+
+Y lo asignas al GPO creado:
+
+![vincular filtro](imagenes/image19.png)
+
+---
+
+[VOLVER A INICIO](../../../index.md)
