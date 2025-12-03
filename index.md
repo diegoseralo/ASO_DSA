@@ -24,3 +24,8 @@
 * [PR0504: Directivas de Seguridad, GPP y Filtros WMI](./UT05/Practicas/PR0504_Directivas_de_Seguridad_GPP_y_Filtros_WMI/PR0504_Directivas_de_Seguridad_GPP_y_Filtros_WMI.md)`REALIZADO`
 
 ---
+### UT06
+* [PR0601: Introducción a Powershell](./UT06/Practicas/PR0601_Intro_Powershell/PR0601_Intro_Powershell.md)`EN PROCESO`
+* 
+
+---
