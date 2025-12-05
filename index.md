@@ -26,5 +26,5 @@
 ---
 ### UT06
 * [PR0601: Introducción a Powershell](./UT06/Practicas/PR0601_Intro_Powershell/PR0601_Intro_Powershell.md)`REALIZADO`
-
+* [PR0602: El Pipeline en Powershell](./UT06/Practicas/PR0602_El_Pipeline_en_Powershell/PR0602_El_Pipeline_en_Powershell.md)`EN PROCESO`
 ---
