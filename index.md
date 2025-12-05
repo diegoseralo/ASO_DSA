@@ -25,7 +25,6 @@
 
 ---
 ### UT06
-* [PR0601: Introducción a Powershell](./UT06/Practicas/PR0601_Intro_Powershell/PR0601_Intro_Powershell.md)`EN PROCESO`
-* 
+* [PR0601: Introducción a Powershell](./UT06/Practicas/PR0601_Intro_Powershell/PR0601_Intro_Powershell.md)`REALIZADO`
 
 ---
