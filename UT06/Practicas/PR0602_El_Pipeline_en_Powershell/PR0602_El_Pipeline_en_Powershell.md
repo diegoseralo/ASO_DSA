@@ -9388,4 +9388,56 @@ Teniendo en cuenta lo anterior, realiza los siguientes ejercicios:
 
 10. Muestra todos los procesos que tienen el estado `Responding` puesto a `False`, es decir, todos los procesos del sistema que se hayan colgado.
 
+---
+
+Ejecutas:
+
+```shell
+Get-Process | Where-Object Responding -eq $False
+
+```
+
+Y veras algo asi:
+
+```shell
+PS C:\Users\HP> Get-Process | Where-Object Responding -eq $False
+
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+   1555      77   147512       2456       7,22   4884  28 SystemSettings
+```
+
+---
+
 11. Muestra todos los ficheros de `C:\Windows` que hayan sido creados con fecha posterior al 15 de octubre de este año.
+
+---
+
+Ejecutas:
+
+```shell
+Get-ChildItem C:\Windows | Where-Object CreationTime -gt (Get-Date -Date "15/10/2025")
+```
+
+Y veras algo asi:
+
+```shell
+PS C:\Users\HP> Get-ChildItem C:\Windows | Where-Object CreationTime -gt (Get-Date -Date "15/10/2025")
+
+
+    Directorio: C:\Windows
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/12/2025     12:51                CbsTemp
+-a----        29/10/2025      9:56        3166568 explorer.exe
+-a----        29/10/2025      9:56        1081344 HelpPane.exe
+-a----        29/10/2025      9:56         585728 regedit.exe
+-a----        29/10/2025      9:56         229376 splwow64.exe
+-a----        29/10/2025      9:56          96768 twain_32.dll
+```
+
+---
+
+[VOLVER A INICIO](../../../index.md)
