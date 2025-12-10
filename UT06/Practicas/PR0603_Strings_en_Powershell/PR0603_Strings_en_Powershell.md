@@ -31,13 +31,15 @@ Crea un archivo con extension `.ps1` para hacer los scripts:
 Editas el script y lo dejas asi:
 
 ```shell
-
+$sys = "Windows Server"
+$sys.ToUpper()
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+WINDOWS SERVER
 ```
 
 ---
@@ -52,13 +54,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$user = "ADMINISTRATOR"
+$user.ToLower()
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+administrator
 ```
 
 ---
@@ -73,13 +77,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$ip = " 192.168.1.10 "
+$ip.Trim()
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+192.168.1.10
 ```
 
 ---
@@ -94,13 +100,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$mac = "00 AA 11 BB 22 CC"
+$mac.Replace(" ", "")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+00AA11BB22CC
 ```
 
 ---
@@ -115,13 +123,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$pass = "P@ssw0rd123"
+$pass.Length
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+11
 ```
 
 ---
@@ -138,13 +148,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$fecha = "2023.10.05"
+$fecha.Replace(".", "-")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+2023-10-05
 ```
 
 ---
@@ -159,13 +171,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$web = "www.miempresa.es"
+$web.Replace(".es", ".com")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+www.miempresa.com
 ```
 
 ---
@@ -180,13 +194,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$tarjeta = "1234-5678-9012-3456"
+$tarjeta.Replace("3456", "XXXX")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+1234-5678-9012-XXXX
 ```
 
 ---
@@ -201,13 +217,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$rutaLinux = "/home/usuario/docs"
+$rutaLinux.Replace("/", "\")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+\home\usuario\docs
 ```
 
 ---
@@ -223,13 +241,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$valor = "(Software)"
+$valor.Replace("(", "").Replace(")", "")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+Software
 ```
 
 ---
@@ -246,13 +266,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$tlf = "+34-600111222"
+$tlf.Substring(0,3)
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
++34
 ```
 
 ---
@@ -267,13 +289,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$codigo = "2024-FACTURA-SEP"
+$codigo.Substring(0,4)
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+2024
 ```
 
 ---
@@ -288,13 +312,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$idEmpleado = "E55421"
+$idEmpleado.Substring(1)
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+55421
 ```
 
 ---
@@ -309,13 +335,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$fichero = "informe.pdf"
+$fichero.Substring($fichero.Length - 3)
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+pdf
 ```
 
 ---
@@ -330,13 +358,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$numero = "7"
+$numero.PadLeft(3, '0')
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+007
 ```
 
 ---
@@ -353,13 +383,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$email = "pepe.garcia@empresa.com"
+$email.Split("@")[0]
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+pepe.garcia
 ```
 
 ---
@@ -374,13 +406,14 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$email.Split("@")[1]
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+empresa.com
 ```
 
 ---
@@ -395,13 +428,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$path = "C:\Users\Admin\Downloads\instaler.msi"
+$path.Split("\")[-1]
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+instaler.msi
 ```
 
 ---
@@ -416,13 +451,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$path = "D:\Datos\Backups"
+$path.Substring(0,2)
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+D:
 ```
 
 ---
@@ -437,13 +474,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$linea = "Juan;Marketing;Madrid"
+$linea.Split(";")[1]
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+Marketing
 ```
 
 ---
@@ -460,13 +499,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$u = "ADM_Lopez"
+$u.StartsWith("ADM")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+True
 ```
 
 ---
@@ -481,13 +522,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$nombre = "JAVIER"
+$nombre.Substring(0,1).ToUpper() + $nombre.Substring(1).ToLower()
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+Javier
 ```
 
 ---
@@ -502,13 +545,15 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$dn = "CN=Beatriz,OU=Ventas,DC=dominio,DC=local"
+$dn.Split(",")[0].Replace("CN=", "")
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+Beatriz
 ```
 
 ---
@@ -527,13 +572,16 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$n = "Fernando"
+$a = "Alonso"
+$n.Substring(0,1) + "." + $a.Substring(0,1) + "."
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+F.A.
 ```
 
 ---
@@ -548,14 +596,18 @@ Y lo ejecutas desde el powershell en el directorio donde esta el script y te dev
 Editas el script y lo dejas asi:
 
 ```shell
-
+$euDate = "31-12-2023"
+$partes = $euDate.Split("-")
+$partes[2] + $partes[1] + $partes[0]
 ```
 
-Y lo ejecutas desde el powershell en el directorio donde esta el script y te devolvera:
+Y lo ejecutas y veras algo asi en el terminal:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+20231231
 ```
 
 ---
 
+[VOLVER A INICIO](../../../index.md)
