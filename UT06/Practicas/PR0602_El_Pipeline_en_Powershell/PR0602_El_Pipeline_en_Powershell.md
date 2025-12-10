@@ -31,10 +31,14 @@ Ejecutas:
 
 Y veras algo asi:
 
+<details>
+
 ```shell
 PS C:\Users\HP> (Get-Date).Year
 2025
 ```
+
+</details>
 
 ---
 
@@ -50,6 +54,8 @@ Get-Tpm |Select-Object TpmPresent, TpmReady, TpmEnabled, TpmActivated |Format-Ta
 
 Y veras algo asi:
 
+<details>
+
 ```shell
 PS C:\WINDOWS\system32> Get-Tpm |Select-Object TpmPresent, TpmReady, TpmEnabled, TpmActivated |Format-Table -AutoSize
 
@@ -57,6 +63,8 @@ TpmPresent TpmReady TpmEnabled TpmActivated
 ---------- -------- ---------- ------------
       True     True       True         True
 ```
+
+</details>
 
 ---
 
@@ -74,6 +82,8 @@ Get-ChildItem C:\Windows\System32 | Measure-Object
 
 Y veras algo asi:
 
+<details>
+
 ```shell
 PS C:\WINDOWS\system32> Get-ChildItem C:\Windows\System32 | Measure-Object
 
@@ -85,6 +95,8 @@ Maximum  :
 Minimum  :
 Property :
 ```
+
+</details>
 
 ---
 
@@ -100,6 +112,8 @@ Get-ChildItem C:\Windows\System32 | Where-Object Extension -eq ".dll" | Measure-
 
 Y veras algo asi:
 
+<details>
+
 ```shell
 PS C:\WINDOWS\system32> Get-ChildItem C:\Windows\System32 | Where-Object Extension -eq ".dll" | Measure-Object
 
@@ -111,6 +125,8 @@ Maximum  :
 Minimum  :
 Property :
 ```
+
+</details>
 
 ---
 
@@ -125,6 +141,8 @@ Get-ChildItem C:\Windows\System32 | Where-Object Extension -eq ".exe" | Where-Ob
 ```
 
 Y veras algo asi:
+
+<details>
 
 ```shell
 PS C:\WINDOWS\system32> Get-ChildItem C:\Windows\System32 | Where-Object Extension -eq ".exe" | Where-Object Length -gt 50000
@@ -703,6 +721,8 @@ Mode                 LastWriteTime         Length Name
 -a----        07/01/2025     23:17          94208 xwizard.exe
 ```
 
+</details>
+
 ---
 
 6. Muestra los ficheros de este directorio que tengan extensión `.dll`, ordenados por fecha de creación y mostrando únicamente las propiedades de fecha de creación (`CreationTime`), último acceso (`LastAccessTime`) y nombre (`Name`).
@@ -716,6 +736,8 @@ Get-ChildItem C:\Windows\System32 | Where-Object Extension -eq ".dll" | Sort-Obj
 ```
 
 Y veras algo asi:
+
+<details>
 
 ```shell
 PS C:\Users\HP> Get-ChildItem C:\Windows\System32 | Where-Object Extension -eq ".dll" | Sort-Object CreationTime | Select-Object CreationTime, LastAccessTime, Name
@@ -4330,6 +4352,8 @@ CreationTime        LastAccessTime      Name
 18/11/2025 0:50:51  18/11/2025 14:23:31 Windows.Devices.Perception.dll
 ```
 
+</details>
+
 ---
 
 7. Muestra el tamaño (`Length`) y nombre completo (`FullName`) de todos los ficheros del directorio ordenados por tamaño en sentido descendente.
@@ -4343,6 +4367,8 @@ Get-ChildItem C:\Windows\System32 | Sort-Object Length -Descending | Select-Obje
 ```
 
 Y veras algo asi:
+
+<details>
 
 ```shell
 PS C:\Users\HP> Get-ChildItem C:\Windows\System32 | Sort-Object Length -Descending | Select-Object Length, FullName
@@ -9258,6 +9284,8 @@ PS C:\Users\HP> Get-ChildItem C:\Windows\System32 | Sort-Object Length -Descendi
           C:\Windows\System32\migwiz
 ```
 
+</details>
+
 ---
 
 8. Muestra el tamaño y nombre completo de todos los ficheros del directorio que tengan un tamaño superior a 10MB (10000000 bytes) ordenados por tamaño.
@@ -9271,6 +9299,8 @@ Get-ChildItem C:\Windows\System32 | Where-Object Length -gt 10000000 | Sort-Obje
 ```
 
 Y veras algo asi:
+
+<details>
 
 ```shell
 PS C:\Users\HP> Get-ChildItem C:\Windows\System32 | Where-Object Length -gt 10000000 | Sort-Object Length | Select-Object Length, FullName
@@ -9296,6 +9326,8 @@ PS C:\Users\HP> Get-ChildItem C:\Windows\System32 | Where-Object Length -gt 1000
 215625816 C:\Windows\System32\MRT.exe
 ```
 
+</details>
+
 ---
 
 9. Muestra el tamaño y nombre completo de todos los ficheros del directorio que tengan un tamaño superior a 10MB y extensión `.exe` ordenados por tamaño.
@@ -9310,6 +9342,8 @@ Get-ChildItem C:\Windows\System32 | Where-Object Length -gt 10000000 | Where-Obj
 
 Y veras algo asi:
 
+<details>
+
 ```shell
 PS C:\Users\HP> Get-ChildItem C:\Windows\System32 | Where-Object Length -gt 10000000 | Where-Object Extension -eq ".exe" | Sort-Object Length | Select-Object Length, FullName
 
@@ -9320,6 +9354,8 @@ PS C:\Users\HP> Get-ChildItem C:\Windows\System32 | Where-Object Length -gt 1000
  89771848 C:\Windows\System32\OneDriveSetup.exe
 215625816 C:\Windows\System32\MRT.exe
 ```
+
+</details>
 
 ---
 
@@ -9399,6 +9435,8 @@ Get-Process | Where-Object Responding -eq $False
 
 Y veras algo asi:
 
+<details>
+
 ```shell
 PS C:\Users\HP> Get-Process | Where-Object Responding -eq $False
 
@@ -9406,6 +9444,8 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 -------  ------    -----      -----     ------     --  -- -----------
    1555      77   147512       2456       7,22   4884  28 SystemSettings
 ```
+
+</details>
 
 ---
 
@@ -9420,6 +9460,8 @@ Get-ChildItem C:\Windows | Where-Object CreationTime -gt (Get-Date -Date "15/10/
 ```
 
 Y veras algo asi:
+
+<details>
 
 ```shell
 PS C:\Users\HP> Get-ChildItem C:\Windows | Where-Object CreationTime -gt (Get-Date -Date "15/10/2025")
@@ -9437,6 +9479,8 @@ d-----        10/12/2025     12:51                CbsTemp
 -a----        29/10/2025      9:56         229376 splwow64.exe
 -a----        29/10/2025      9:56          96768 twain_32.dll
 ```
+
+</details>
 
 ---
 
