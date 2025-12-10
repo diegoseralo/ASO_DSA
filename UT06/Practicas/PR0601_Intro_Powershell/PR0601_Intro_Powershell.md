@@ -36,8 +36,6 @@ Get-Command -Noun Service
 
 Y veras algo asi:
 
-<details>
-
 ```shell
 PS C:\Users\HP> Get-Command -Noun Service
 
@@ -53,8 +51,6 @@ Cmdlet          Stop-Service                                       3.1.0.0    Mi
 Cmdlet          Suspend-Service                                    3.1.0.0    Microsoft.PowerShell.Management
 ```
 
-</details>
-
 ---
 
 2.  **Búsqueda por acción (Verbo):** lista todos los comandos disponibles cuya acción sea `Stop` (detener), independientemente de lo que detengan.
@@ -68,8 +64,6 @@ Get-Command -Verb Stop
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Command -Verb Stop
@@ -102,8 +96,6 @@ Cmdlet          Stop-VMReplication                                 2.0.0.0    Hy
 Cmdlet          Stop-VMTrace                                       2.0.0.0    Hyper-V
 ```
 
-</details>
-
 ---
 
 3.  **Uso de la ayuda:** muestra por pantalla la ayuda detallada del comando `Get-Process`, pero asegúrate de que se muestren específicamente los **ejemplos** de uso.
@@ -123,8 +115,6 @@ Update-Help
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Help -Name Get-Process -Examples
@@ -336,8 +326,6 @@ SINOPSIS
     `Get-Process` returns. To view all properties, use `Get-Process | Get-Member`.
 ```
 
-</details>
-
 ---
 
 ### Bloque 2: Exploración de objetos
@@ -353,8 +341,6 @@ Ejecutas:
 Get-Date | Get-Member
 ```
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Date | Get-Member
@@ -425,8 +411,6 @@ Year                 Property       int Year {get;}
 DateTime             ScriptProperty System.Object DateTime {get=if ((& { Set-StrictMode -Version 1; $this.DisplayHint }) -i...
 ```
 
-</details>
-
 El `TypeName` del objeto devuelto es `System.DataTime`.
 
 ---
@@ -440,8 +424,6 @@ Ejecutas:
 ```shell
 Get-Process | Get-Member -MemberType Method
 ```
-
-<details>
 
 Y veras algo asi:
 
@@ -474,8 +456,6 @@ WaitForExit               Method     bool WaitForExit(int milliseconds), void Wa
 WaitForInputIdle          Method     bool WaitForInputIdle(int milliseconds), bool WaitForInputIdle()
 ```
 
-</details>
-
 ---
 
 ### Bloque 3: El Pipeline (selección y ordenación)
@@ -492,8 +472,6 @@ Get-Process | Select-Object Id, ProcessName
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Process | Select-Object Id, ProcessName
@@ -779,8 +757,6 @@ PS C:\Users\HP> Get-Process | Select-Object Id, ProcessName
  2320 WUDFHost
 ```
 
-</details>
-
 ---
 
 7.  **Ordenación básica:** lista todos los procesos del sistema, ordenados por su consumo de `CPU` de forma **descendente** (el que más consume primero).
@@ -794,8 +770,6 @@ Get-Process | Sort-Object CPU -Descending
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Process | Sort-Object CPU -Descending
@@ -1080,8 +1054,6 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
     188      13     2148       5228              2444   0 svchost
 ```
 
-</details>
-
 ---
 
 8.  **Formato de tabla:** obtén los servicios del sistema y fuerza la salida para que se muestre como una tabla (`Format-Table`) que se auto-ajuste (`-AutoSize`) al ancho de la ventana.
@@ -1095,8 +1067,6 @@ Get-Service | Format-Table -AutoSize
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Service | Format-Table -AutoSize
@@ -1412,8 +1382,6 @@ Stopped XboxGipSvc                                  Xbox Accessory Management Se
 Stopped XboxNetApiSvc                               Servicio de red de Xbox Live
 ```
 
-</details>
-
 ---
 
 ### Bloque 4: Filtrado y lógica (Where-Object)
@@ -1427,8 +1395,6 @@ Ejecutas:
 ```shell
 Get-Service | Where-Object Status -eq 'Running'
 ```
-
-<details>
 
 Y veras algo asi:
 
@@ -1579,8 +1545,6 @@ Running  WSearch            Windows Search
 Running  WSLService         WSL Service
 ```
 
-</details>
-
 ---
 
 10. **Filtrado numérico:** lista los procesos cuyo identificador (`Id`) sea mayor que (`-gt`) 2000.
@@ -1594,8 +1558,6 @@ Get-Process | Where-Object Id -gt 2000
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Process | Where-Object Id -gt 2000
@@ -1855,8 +1817,6 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
     284      14    11008       1968              2320   0 WUDFHost
 ```
 
-</details>
-
 ---
 
 11. **Filtrado con comodines:** busca y muestra todos los procesos cuyo nombre (`Name`) comience por la letra "s" utilizando el operador `-like` y el comodín adecuado.
@@ -1870,8 +1830,6 @@ Get-Process | Where-Object ProcessName -like 's*'
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Process | Where-Object ProcessName -like 's*'
@@ -1998,8 +1956,6 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
    1539      74   144988        508       3,19   4540  23 SystemSettings
 ```
 
-</details>
-
 ---
 
 ### Bloque 5: Agrupación y estadísticas
@@ -2015,8 +1971,6 @@ Get-Service | Group-Object -Property Status
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-Service | Group-Object -Property Status
@@ -2053,8 +2007,6 @@ Minimum  :
 Property : Length
 ```
 
-</details>
-
 ---
 
 ### Bloque 6: Gestión del Historial
@@ -2070,8 +2022,6 @@ Get-History
 ```
 
 Y veras algo asi:
-
-<details>
 
 ```shell
 PS C:\Users\HP> Get-History
@@ -2092,8 +2042,6 @@ PS C:\Users\HP> Get-History
   12 Get-Service | Group-Object -Property Status
   13 Get-ChildItem | Measure-Object -Property Length -Average
 ```
-
-</details>
 
 ---
 
