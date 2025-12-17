@@ -15,7 +15,11 @@ Resultados de aprendizaje:  RA7
 
 ## Bloque I: Arrays fijos
 
+---
 
+Creas un script con extensión `ps1` :
+
+---
 
 **1. Reconfiguración de DNS y Verificación**
 
@@ -29,6 +33,29 @@ Como administrador, tienes un script que carga los servidores DNS de una sucursa
     4.  Muestra en pantalla el número total de servidores DNS configurados.
     5.  Muestra la configuración final corregida.
 
+---
+
+Editas el script y añades :
+
+```shell
+$dns= "192.168.1.10","10.0.0.50"
+Write-Host "Configuracion actual: $($dns[0]) - $($dns[1])"
+$dns[1]="8.8.8.8"
+$dns.Count
+Write-Host "Configuración final: $($dns[0]) - $($dns[1])"
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+Configuracion actual: 192.168.1.10 - 10.0.0.50
+2
+ConfiguraciÃ³n final: 192.168.1.10 - 8.8.8.8
+```
+
+---
+
 **2. Rotación de logs de backups (LIFO - Last In, First Out)**
 
 Un sistema antiguo guarda los nombres de los últimos 3 backups en un array. Debes identificar cuál es el más antiguo y cuál el más nuevo para un informe, asumiendo que el índice 0 es el más antiguo.
@@ -41,22 +68,66 @@ Un sistema antiguo guarda los nombres de los últimos 3 backups en un array. Deb
     4.  El backup del Miércoles ha salido corrupto. Modifica el último elemento del array añadiéndole el texto " (CORRUPTO)" al final del nombre.
     5.  Imprime un resumen: "Rotación de backups: Del [Viejo] al [Nuevo]".
 
+---
 
+Editas el script y añades :
+
+```shell
+$backups = "Backup_Lunes.zip", "Backup_Martes.zip", "Backup_Miercoles.zip"
+$oldest = $backups[0]
+$newest = $backups[$backups.Count - 1]
+$backups[$backups.Count - 1] = $backups[$backups.Count - 1] + " (CORRUPTO)"
+Write-Host "Rotacion de backups: Del $oldest al $newest"
+
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+Rotacion de backups: Del Backup_Lunes.zip al Backup_Miercoles.zip
+```
+
+---
 
 ## Bloque II: ArrayLists
-
 
 **3. Gestión de Cola de incidencias (Priorización)**
 
 Estás programando un dashboard de soporte técnico. Las incidencias llegan y se ponen en cola. De repente, llega una incidencia crítica del CEO que debe saltarse la cola.
 
 - **Pasos a realizar:**
-- 
     1.  Crea un `ArrayList` vacío.
     2.  Añade las incidencias: "Monitor parpadea" y "Ratón no va". (Recuerda ocultar la salida por pantalla del `.Add()`).
     3.  Llega una urgencia: Inserta en la posición 0 la incidencia: "SERVIDOR CAÍDO".
     4.  El técnico resuelve la incidencia del "Ratón". Búscala por su nombre y elimínala de la lista.
     5.  Imprime la lista actual de tareas pendientes y cuenta cuántas quedan.
+
+---
+
+Editas el script y añades :
+
+```shell
+$incidencias = New-Object System.Collections.ArrayList
+$null = $incidencias.Add("Monitor parpadea")
+$null = $incidencias.Add("Ratón no va")
+$incidencias.Insert(0, "SERVIDOR CAIDO")
+$incidencias.Remove("Ratón no va")
+$incidencias
+$incidencias.Count
+
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+SERVIDOR CAIDO
+Monitor parpadea
+2
+```
+
+---
 
 **4. Validación de lista negra de IPs (Seguridad)**
 
@@ -71,9 +142,23 @@ Tu script de firewall recibe IPs sospechosas y debe decidir si bloquearlas o no.
         - Si no está, añádela a la lista y muestra: "IP [IP] añadida a la lista negra."
     4.  Muestra la lista final ordenada alfabéticamente
 
+---
+
+Editas el script y añades :
+
+```shell
+
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+
+```
+
+---
 
 #### Bloque III: Listas genéricas 
-
 
 **5. Hardening de puertos de Firewall (List[int])**
 
@@ -88,6 +173,22 @@ Vamos a configurar una regla de firewall que solo permite ciertos puertos numér
     5.  Intenta añadir (solo escribe la línea comentada) el texto "HTTP" a la lista y explica en un comentario qué error daría.
     6.  Muestra la lista de puertos permitidos ordenada de menor a mayor.
 
+---
+
+Editas el script y añades :
+
+```shell
+
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+
+```
+
+---
+
 **6. Inventario de servicios críticos (List[string])**
 
 Necesitas monitorizar una lista de servicios de Windows.
@@ -99,7 +200,21 @@ Necesitas monitorizar una lista de servicios de Windows.
     3.  Ordena la lista alfabéticamente.
     4.  Recorre la lista (foreach) y para cada elemento muestra el mensaje: "Monitorizando servicio: [NombreServicio]... OK".
 
+---
 
+Editas el script y añades :
+
+```shell
+
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+
+```
+
+---
 
 #### Bloque IV: Manipulación de texto 
 
@@ -115,6 +230,21 @@ Tienes una línea de log cruda extraída de un servidor Linux. Necesitas sacar e
     4.  El segundo elemento es la IP. Límpialo para obtener solo "192.168.1.55".
     5.  Muestra un mensaje final claro: "ALERTA: El usuario [Usuario] intentó conectar desde [IP]".
 
+---
+
+Editas el script y añades :
+
+```shell
+
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+
+```
+
+---
 
 **8. Generador de CSV para recursos humanos**
 
@@ -127,5 +257,20 @@ RRHH te pide un listado de los correos de los nuevos empleados separados por com
     4.  Al resultado final, añádele manualmente el encabezado "EmailAddress," al principio.
     5.  Muestra el resultado, que debería parecerse al contenido de un archivo .csv.
 
+---
+
+Editas el script y añades :
+
+```shell
+
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```shell
+
+```
+
+---
 
 [VOLVER A INICIO](../../../index.md)
