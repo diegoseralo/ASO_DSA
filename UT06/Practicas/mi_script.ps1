@@ -1,7 +1,10 @@
-$incidencias = New-Object System.Collections.ArrayList
-$null = $incidencias.Add("Monitor parpadea")
-$null = $incidencias.Add("Ratón no va")
-$incidencias.Insert(0, "SERVIDOR CAIDO")
-$incidencias.Remove("Ratón no va")
-$incidencias
-$incidencias.Count
+$arrayServicios = "Spooler", "W3SVC", "LanmanWorkstation"
+$servicios = [System.Collections.Generic.List[string]]::new()
+foreach ($srv in $arrayServicios) {
+    $servicios.Add($srv)
+}
+$servicios.Add("wuauserv")
+$servicios = $servicios | Sort-Object
+foreach ($s in $servicios) {
+    Write-Host "Monitorizando servicio: $s… OK"
+}

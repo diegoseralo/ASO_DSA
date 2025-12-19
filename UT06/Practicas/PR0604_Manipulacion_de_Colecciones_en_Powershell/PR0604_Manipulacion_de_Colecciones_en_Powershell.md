@@ -147,13 +147,29 @@ Tu script de firewall recibe IPs sospechosas y debe decidir si bloquearlas o no.
 Editas el script y añades :
 
 ```shell
-
+$lista_negra = New-Object System.Collections.ArrayList
+$null = $lista_negra.Add("10.10.10.5")
+$null = $lista_negra.Add("192.168.50.4")
+$null = $lista_negra.Add("80.80.80.80")
+$nueva_amenaza = "192.168.50.4"
+if ($lista_negra -contains $nueva_amenaza) {
+    Write-Host "La IP $nueva_amenaza ya estaba bloqueada. No se hace nada."
+} else {
+    $null = $lista_negra
+.Add($nueva_amenaza)
+    Write-Host "IP $nueva_amenaza añadida a la lista negra."
+}
+$lista_negra | Sort-Object
 ```
 
 Lo ejecutas y tienes que ver algo asi:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+La IP 192.168.50.4 ya estaba bloqueada. No se hace nada.
+10.10.10.5
+192.168.50.4
+80.80.80.80
 ```
 
 ---
@@ -178,13 +194,25 @@ Vamos a configurar una regla de firewall que solo permite ciertos puertos numér
 Editas el script y añades :
 
 ```shell
-
+$puertos = [System.Collections.Generic.List[int]]::new()
+$puertos.Add(80)
+$puertos.Add(443)
+$puertos.Add(53)
+$puertos.Add(23)
+$puertos.Remove(23)
+# $puertos.Add("HTTP")
+# ERROR: No se puede convertir el valor "HTTP" a tipo System.Int32
+$puertos | Sort-Object
 ```
 
 Lo ejecutas y tienes que ver algo asi:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+True
+53
+80
+443
 ```
 
 ---
@@ -205,13 +233,26 @@ Necesitas monitorizar una lista de servicios de Windows.
 Editas el script y añades :
 
 ```shell
-
+$arrayServicios = "Spooler", "W3SVC", "LanmanWorkstation"
+$servicios = [System.Collections.Generic.List[string]]::new()
+foreach ($srv in $arrayServicios) {
+    $servicios.Add($srv)
+}
+$servicios.Add("wuauserv")
+$servicios = $servicios | Sort-Object
+foreach ($s in $servicios) {
+    Write-Host "Monitorizando servicio: $s… OK"
+}
 ```
 
 Lo ejecutas y tienes que ver algo asi:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+Monitorizando servicio: €¦ OK
+Monitorizando servicio: €¦ OK
+Monitorizando servicio: €¦ OK
+Monitorizando servicio: €¦ OK
 ```
 
 ---
@@ -235,13 +276,19 @@ Tienes una línea de log cruda extraída de un servidor Linux. Necesitas sacar e
 Editas el script y añades :
 
 ```shell
-
+$logLine = " User: admin ; IP: 192.168.1.55 ; Status: Failed "
+$clean = $logLine.Trim()
+$partes = $clean.Split(";")
+$usuario = $partes[0].Split(":")[1].Trim()
+$ip = $partes[1].Split(":")[1].Trim()
+Write-Host "ALERTA: El usuario $usuario intentó conectar desde $ip"
 ```
 
 Lo ejecutas y tienes que ver algo asi:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+ALERTA: El usuario admin intentÃ³ conectar desde 192.168.1.55
 ```
 
 ---
@@ -262,13 +309,20 @@ RRHH te pide un listado de los correos de los nuevos empleados separados por com
 Editas el script y añades :
 
 ```shell
-
+$m1 = "ana@empresa.com"
+$m2 = "luis@empresa.com"
+$m3 = "bea@empresa.com"
+$emails = $m1, $m2, $m3
+$csv = $emails -join ","
+$csvFinal = "EmailAddress," + $csv
+$csvFinal
 ```
 
 Lo ejecutas y tienes que ver algo asi:
 
 ```shell
-
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+EmailAddress,ana@empresa.com,luis@empresa.com,bea@empresa.com
 ```
 
 ---
