@@ -30,5 +30,6 @@
 * [PR0603: Strings en Powershell](./UT06/Practicas/PR0603_Strings_en_Powershell/PR0603_Strings_en_Powershell.md)`REALIZADO`
 * [PR0604: Manipulación de Colecciones en Powershell](./UT06/Practicas/PR0604_Manipulacion_de_Colecciones_en_Powershell/PR0604_Manipulacion_de_Colecciones_en_Powershell.md)`REALIZADO`
 * [PR0605: Limpieza de Logs](./UT06/Practicas/PR0605_Limpieza_de_Logs/PR0605_Limpieza_de_Logs.md)`REALIZADO`
+* [PR0606: Limpieza de Logs (II)](./UT06/Practicas/PR0606_Limpieza_de_Logs/PR0606_Limpieza_de_Logs_2.md)`EN PROCESO`
 
 ---
