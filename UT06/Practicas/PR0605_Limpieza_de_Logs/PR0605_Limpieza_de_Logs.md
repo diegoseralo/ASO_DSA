@@ -60,3 +60,60 @@ Al abrir el CSV generado, debería verse algo así (el orden de columnas puede v
 | 2023-11-01 10:05 | ERROR    | guest\_user    | 9921    | Auth\_Fail (Pass)       | 
 | 2023-11-01 10:15 | WARN     | dev\_team      | 8843    | Upload\_Limit\_Exceeded |
 | 2023-11-01 10:20 | CRITICAL | administrator  | 1001    | Service\_Stop           |
+
+---
+
+Creas un script con extensión `ps1` y le añades lo siguiente:
+
+```powershell
+$logCrudo = @"
+[INFO] ID:8842 :: 2023/11/01_10:00 :: User:admin_01 :: Action:Login_Success
+[ERROR] ID:9921 :: 2023/11/01_10:05 :: User:guest_user :: Action:Auth_Fail (Pass)
+[WARN] ID:8843 :: 2023-11-01 10:15 :: User:dev_team :: Action:Upload_Limit_Exceeded
+[CRITICAL] ID:1001 :: 01-11-2023_10:20 :: User:ROOT :: Action:Service_Stop
+"@ -split "`r`n"
+
+$objetosProcesados = foreach($linea in $logCrudo) {
+    if ($linea.StartsWith("[INFO]")) { continue } 
+
+    $partes = $linea -split " :: "
+    # partes[0] = "[ERROR] ID:9921"
+    # [ERROR ID:9921
+    $nivelRaw = $partes[0].Split(']')[0].Replace('[','').Trim()
+    $id = $partes[0].Split(':')[1].Trim()
+
+    $fechaLimpia = $partes[1].Replace('_', ' ').Replace('-', '/').Trim()
+    $timeStamp = (Get-Date $fechaLimpia).ToString("yyyy-MM-dd HH:mm")
+    $usuarioRaw = $partes[2].Split(':')[1].Trim().ToLower()
+    if ($usuarioRaw -eq "root") { $usuarioRaw = "administrator" }
+    
+    # $accion = $partes[3].Substring($partes[3].IndexOf(':') + 1).Trim()
+    $accion = $partes[3].Split(':')[1]
+
+    [PSCustomObject]@{
+        Fecha = $timeStamp
+        Severity = $nivelRaw
+        User = $usuarioRaw
+        EventID = $id
+        Action = $accion
+    }
+}
+$objetosProcesados | Export-Csv -Path "UT06/Practicas/PR0605_Limpieza de Logs/log_limpio.csv"
+$objetosProcesados | Format-Table -AutoSize
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```powershell
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+
+Fecha            Severity User          EventID Action
+-----            -------- ----          ------- ------
+2023/11/01 10:05 ERROR    guest_user    9921    Auth_Fail (Pass)     
+2023/11/01 10:15 WARN     dev_team      8843    Upload_Limit_Exceeded
+01/11/2023 10:20 CRITICAL administrator 1001    Service_Stop
+```
+
+---
+
+[VOLVER A INICIO](../../../index.md)
