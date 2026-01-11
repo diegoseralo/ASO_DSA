@@ -1,34 +1,34 @@
-$logCrudo = @"
-[INFO] ID:8842 :: 2023/11/01_10:00 :: User:admin_01 :: Action:Login_Success
-[ERROR] ID:9921 :: 2023/11/01_10:05 :: User:guest_user :: Action:Auth_Fail (Pass)
-[WARN] ID:8843 :: 2023-11-01 10:15 :: User:dev_team :: Action:Upload_Limit_Exceeded
-[CRITICAL] ID:1001 :: 01-11-2023_10:20 :: User:ROOT :: Action:Service_Stop
+$movimientosCrudos = @"
+[LOG-OK] SKU:A199 :: 2024.01.10_08:00 :: Item:Smartphone_X :: Qty:50 :: Status:In_Stock
+[LOG-ALERT] SKU:B250 :: 10-01-2024 09:15 :: Item:LAPTOP-PRO :: Qty:-5 :: Status:Damaged
+[LOG-OK] SKU:C312 :: 2024/01/10_10:30 :: Item:tablet_air :: Qty:120 :: Status:In_Stock
+[LOG-CRIT] SKU:D400 :: 11/01/2024_11:45 :: Item:UNKNOWN_ITEM :: Qty:0 :: Status:Out_Of_Order
 "@ -split "`r`n"
 
-$objetosProcesados = foreach($linea in $logCrudo) {
-    if ($linea.StartsWith("[INFO]")) { continue } 
+$objetosProcesados = foreach($linea in $movimientosCrudos) {
+    if ($linea.StartsWith("[LOG-OK]")) { continue } 
 
     $partes = $linea -split " :: "
-    # partes[0] = "[ERROR] ID:9921"
-    # [ERROR ID:9921
-    $nivelRaw = $partes[0].Split(']')[0].Replace('[','').Trim()
-    $id = $partes[0].Split(':')[1].Trim()
 
-    $fechaLimpia = $partes[1].Replace('_', ' ').Replace('-', '/').Trim()
-    $timeStamp = (Get-Date $fechaLimpia).ToString("yyyy-MM-dd HH:mm")
-    $usuarioRaw = $partes[2].Split(':')[1].Trim().ToLower()
-    if ($usuarioRaw -eq "root") { $usuarioRaw = "administrator" }
+    $severity = $partes[0].Split(' ')[0].Replace("[", "").Replace("]", "").Trim()
 
-    # $accion = $partes[3].Substring($partes[3].IndexOf(':') + 1).Trim()
-    $accion = $partes[3].Split(':')[1]
+    $item = $partes[2].Split(':')[1].Trim().Toupper()
+    if ($item -eq "UNKNOWN_ITEM") { $item ="PENDING_REVIEW" }
+
+    $fechaLimpia = $partes[1].Replace('_', ' ').Replace('-', '/').Replace('.','/').Trim()
+    $timeStamp = (Get-Date $fechaLimpia).ToString("dd-MM-yyyy HH:mm")
+
+    $status = $partes[4].Split(':')[1].Trim()
+    if ($status -eq "Damaged") { $action = "Repair"}
+    elseif ($status -eq "Out_Of_Order") { $action = "Replace" }
+    else { $action = "None" }
 
     [PSCustomObject]@{
+        Severidad = $severity
+        Item = $item
         Fecha = $timeStamp
-        Severity = $nivelRaw
-        User = $usuarioRaw
-        EventID = $id
-        Action = $accion
+        ActionRequired = $action
     }
 }
-$objetosProcesados | Export-Csv -Path "./PR0605_Limpieza de Logs/log_limpio.csv"
+$objetosProcesados | Export-Csv -Path "./PR0606_Limpieza_de_Logs_2/reporte_inventario.csv"
 $objetosProcesados | Format-Table -AutoSize

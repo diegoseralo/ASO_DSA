@@ -98,7 +98,7 @@ $objetosProcesados = foreach($linea in $logCrudo) {
         Action = $accion
     }
 }
-$objetosProcesados | Export-Csv -Path "UT06/Practicas/PR0605_Limpieza de Logs/log_limpio.csv"
+$objetosProcesados | Export-Csv -Path "UT06/Practicas/PR0605_Limpieza_de_Logs/log_limpio.csv"
 $objetosProcesados | Format-Table -AutoSize
 ```
 
