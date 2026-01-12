@@ -1,0 +1,4 @@
+#TYPE System.Management.Automation.PSCustomObject
+"Severidad","Item","Fecha","ActionRequired"
+"LOG-ALERT","LAPTOP-PRO","10-01-2024 09:15","Repair"
+"LOG-CRIT","PENDING_REVIEW","11-01-2024 11:45","Replace"

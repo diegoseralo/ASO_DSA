@@ -80,7 +80,7 @@ $objetosProcesados = foreach($linea in $movimientosCrudos) {
         ActionRequired = $action
     }
 }
-$objetosProcesados | Export-Csv -Path "./PR0606_Limpieza_de_Logs_2/reporte_inventario.csv"
+$objetosProcesados | Export-Csv -Path "reporte_inventario.csv"
 $objetosProcesados | Format-Table -AutoSize
 ```
 
@@ -94,6 +94,8 @@ Severidad Item           Fecha            ActionRequired
 LOG-ALERT LAPTOP-PRO     10-01-2024 09:15 Repair
 LOG-CRIT  PENDING_REVIEW 11-01-2024 11:45 Replace
 ```
+
+Además del archivo `csv`.
 
 ---
 

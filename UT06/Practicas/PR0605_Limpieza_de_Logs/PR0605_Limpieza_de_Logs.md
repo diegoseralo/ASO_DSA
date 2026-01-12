@@ -98,7 +98,7 @@ $objetosProcesados = foreach($linea in $logCrudo) {
         Action = $accion
     }
 }
-$objetosProcesados | Export-Csv -Path "UT06/Practicas/PR0605_Limpieza_de_Logs/log_limpio.csv"
+$objetosProcesados | Export-Csv -Path "reporte_seguridad.csv"
 $objetosProcesados | Format-Table -AutoSize
 ```
 
@@ -113,6 +113,8 @@ Fecha            Severity User          EventID Action
 2023/11/01 10:15 WARN     dev_team      8843    Upload_Limit_Exceeded
 01/11/2023 10:20 CRITICAL administrator 1001    Service_Stop
 ```
+
+Además del archivo `csv`.
 
 ---
 

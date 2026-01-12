@@ -74,4 +74,68 @@ KB100000 - KB100001 - KB200022
 
 ```
 
+---
+
+Creas un script con extensión `ps1` y le añades lo siguiente:
+
+```powershell
+# Lista de parches CRÍTICOS requeridos por el boletín de seguridad
+$kbsRequeridos = @("KB500123", "KB409999", "KB890830", "KB500556", "KB500321", "KB999999")
+
+# Lista de parches INSTALADOS actualmente en el servidor 
+# Nota: Están desordenados y podría haber parches viejos que no son críticos.
+$kbsInstalados = @("KB100000", "KB500556", "KB409999", "KB100001", "KB890830", "KB200022")
+
+$kbsFaltantes = @()
+$kbsExtra = @()
+
+foreach ($kb in $kbsRequeridos) {
+    if ($kb -notin $kbsInstalados) {
+        $kbsFaltantes += $kb
+    }
+}
+
+foreach ($kb in $kbsInstalados) {
+    if ($kb -notin $kbsRequeridos) {
+        $kbsExtra += $kb
+    }
+}
+
+$totalRequeridos = $kbsRequeridos.Count
+$totalInstalados = $kbsInstalados.Count
+$instaladosCorrectos = $totalRequeridos - $kbsFaltantes.Count
+$porcentaje = [Math]::Round(($instaladosCorrectos / $totalRequeridos) * 100)
+
+Write-Host "=== AUDITORÍA DE SEGURIDAD ==="
+Write-Host "Total Requeridos: $totalRequeridos"
+Write-Host "Total Instalados: $totalInstalados"
+Write-Host ""
+Write-Host "ESTADO DE CUMPLIMIENTO: $porcentaje%"
+Write-Host ""
+Write-Host "[URGENTE] Parches Faltantes:"
+Write-Host ($kbsFaltantes -join ", ")
+Write-Host ""
+Write-Host "[INFO] Parches 'Extra' instalados (No críticos):"
+Write-Host ($kbsExtra -join " - ")
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```powershell
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\mi_script.ps1'
+=== AUDITORÃA DE SEGURIDAD ===
+Total Requeridos: 6
+Total Instalados: 6
+
+ESTADO DE CUMPLIMIENTO: 50%
+
+[URGENTE] Parches Faltantes:
+KB500123, KB500321, KB999999
+
+[INFO] Parches 'Extra' instalados (No crÃ­ticos):
+KB100000 - KB100001 - KB200022
+```
+
+---
+
 [VOLVER A INICIO](../../../index.md)

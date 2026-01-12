@@ -74,4 +74,79 @@ El script debe generar un archivo llamado `usuarios_importar.csv` que contenga o
 | Ana Maria Garcia Lopez | agarcia | ana.maria... | VENTAS       | ChangeMe1995!   |
 ```
 
+---
+
+Creas un script con extensión `ps1` y le añades lo siguiente:
+
+```powershell
+$rutaFichero = "nuevos_empleados_raw.txt"
+$lineas = Get-Content $rutaFichero
+$usuarios = @()
+
+function Convertir-TitleCase ($texto) {
+    $palabras = $texto.ToLower().Split(" ")
+    $resultado = @()
+    foreach ($p in $palabras) {
+        $resultado += $p.Substring(0,1).ToUpper() + $p.Substring(1)
+    }
+    return $resultado -join " "
+}
+
+foreach ($linea in $lineas) {
+    $partes = $linea.Split('|')
+
+    $nombreRaw = $partes[0]
+    $departamentoRaw = $partes[1]
+    $fechaRaw = $partes[2]
+
+    $nombrePartes = $nombreRaw.Split(',')
+    $apellidos = $nombrePartes[0].Trim()
+    $nombre = $nombrePartes[1].Trim()
+
+    $nombreLimpio = Convertir-TitleCase $nombre
+    $apellidosLimpios = Convertir-TitleCase $apellidos
+    $nombreCompleto = "$nombreLimpio $apellidosLimpios"
+
+    $primerApellido = $apellidos.Split(" ")[0]
+    $usuario = ($nombre.Substring(0,1) + $primerApellido.Substring(0, [Math]::Min(6, $primerApellido.Length))).ToLower()
+
+    $emailNombre = $nombreLimpio.Replace(" ", ".").ToLower()
+    $emailApellido = $apellidosLimpios.Replace(" ", ".").ToLower()
+    $email = "$emailNombre.$emailApellido@techiberia.com"
+
+    $departamento = $departamentoRaw.Split('-')[1]
+
+    $anio = $fechaRaw.Split('/')[0]
+    $password = "ChangeMe$anio!"
+
+    $usuarios += [PSCustomObject]@{
+        NombreCompleto  = $nombreCompleto
+        Usuario         = $usuario
+        Email           = $email
+        Departamento    = $departamento
+        PasswordInicial = $password
+    }
+}
+
+$usuarios | Export-Csv "usuarios_importar.csv" -NoTypeInformation -Encoding UTF8
+$usuarios | Format-Table -AutoSize
+```
+
+Lo ejecutas y tienes que ver algo asi:
+
+```powershell
+PS C:\Users\HP\Desktop\ASO_DSA> . 'C:\Users\HP\Desktop\ASO_DSA\UT06\Practicas\PR0607_Limpieza_de_Datos_de_Usuario\mi_script.ps1'
+
+NombreCompleto         Usuario Email                                 Departamento PasswordInicial
+--------------         ------- -----                                 ------------ ---------------
+Ana Maria Garcia Lopez agarcia ana.maria.garcia.lopez@techiberia.com VENTAS       ChangeMe1995!
+Pedro Ruiz De La Torre pruiz   pedro.ruiz.de.la.torre@techiberia.com IT_SOPORTE   ChangeMe1988!
+Sarah Jane O'connor    so'conn sarah.jane.o'connor@techiberia.com    MARKETING    ChangeMe2001!
+Jose Martinez          jmartin jose.martinez@techiberia.com          LOGISTICA    ChangeMe1999!
+```
+
+Además del archivo `csv`.
+
+---
+
 [VOLVER A INICIO](../../../index.md)
