@@ -26,5 +26,5 @@ Write-Host "- Carga Promedio: $promedio %"
 Write-Host "- Pico Máximo: $pico %"
 Write-Host "- Incidentes Críticos (>90%): $incidentes"
 Write-Host ""
-Write-Host "DIAGNÒSTICO: "
+Write-Host "DIAGNÒSTICO:"
 Write-Host $diagnostico
