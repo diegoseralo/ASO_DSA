@@ -104,7 +104,7 @@ foreach ($kb in $kbsInstalados) {
 $totalRequeridos = $kbsRequeridos.Count
 $totalInstalados = $kbsInstalados.Count
 $instaladosCorrectos = $totalRequeridos - $kbsFaltantes.Count
-$porcentaje = [Math]::Round(($instaladosCorrectos / $totalRequeridos) * 100)
+$porcentaje = ($instaladosCorrectos / $totalRequeridos) * 100
 
 Write-Host "=== AUDITORÍA DE SEGURIDAD ==="
 Write-Host "Total Requeridos: $totalRequeridos"

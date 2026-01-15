@@ -33,5 +33,6 @@
 * [PR0606: Limpieza de Logs (II)](./UT06/Practicas/PR0606_Limpieza_de_Logs_2/PR0606_Limpieza_de_Logs_2.md)`REALIZADO`
 * [PR0607: Limpieza de Datos de Usuario](./UT06/Practicas/PR0607_Limpieza_de_Datos_de_Usuario/PR0607_Limpieza_de_Datos_de_Usuario.md)`REALIZADO`
 * [PR0608: Comparación de Listas](./UT06/Practicas/PR0608_Comparacion_de_Listas/PR0608_Comparacion_de_Listas.md)`REALIZADO`
+* [PR0609: Análisis de Carga del Procesador](./UT06/Practicas/PR0609_Analisis_de_Carga_del_Procesador/PR0609_Analisis_de_Carga_del_Procesador.md)`REALIZADO`
 
 ---

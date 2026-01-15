@@ -1,38 +1,30 @@
-# Lista de parches CRÍTICOS requeridos por el boletín de seguridad
-$kbsRequeridos = @("KB500123", "KB409999", "KB890830", "KB500556", "KB500321", "KB999999")
-
-# Lista de parches INSTALADOS actualmente en el servidor 
-# Nota: Están desordenados y podría haber parches viejos que no son críticos.
-$kbsInstalados = @("KB100000", "KB500556", "KB409999", "KB100001", "KB890830", "KB200022")
-
-$kbsFaltantes = @()
-$kbsExtra = @()
-
-foreach ($kb in $kbsRequeridos) {
-    if ($kb -notin $kbsInstalados) {
-        $kbsFaltantes += $kb
+$muestrasCPU = @(15, 12, 18, 20, 45, 88, 95, 99, 100, 98, 55, 22, 15, 10, 12, 14, 95, 99, 100, 10)
+$suma = 0
+$pico = 0
+$incidentes = 0
+foreach ($valor in $muestrasCPU) {
+    $suma += $valor
+    if ($valor -gt $pico) {
+        $pico = $valor
+    }
+    if ($valor -ge 90) {
+        $incidentes++
     }
 }
-
-foreach ($kb in $kbsInstalados) {
-    if ($kb -notin $kbsRequeridos) {
-        $kbsExtra += $kb
-    }
+$Muestras = $muestrasCPU.Count
+$promedio = $suma / $Muestras
+if ($promedio -gt 70 -or $incidentes -gt 3) {
+    $diagnostico = "[RECOMENDACIÒN] NECESARIO UPGRADE DE HARDWARE."
+} else {
+    $diagnostico = "[RECOMENDACIÒN] FALSA ALARMA. EL SERVIDOR AGUANTA."
 }
-
-$totalRequeridos = $kbsRequeridos.Count
-$totalInstalados = $kbsInstalados.Count
-$instaladosCorrectos = $totalRequeridos - $kbsFaltantes.Count
-$porcentaje = [Math]::Round(($instaladosCorrectos / $totalRequeridos) * 100)
-
-Write-Host "=== AUDITORÍA DE SEGURIDAD ==="
-Write-Host "Total Requeridos: $totalRequeridos"
-Write-Host "Total Instalados: $totalInstalados"
+Write-Host "=== INFORME DE RENDIMIENTO ==="
+Write-Host "Muestras analizadas: $Muestras"
 Write-Host ""
-Write-Host "ESTADO DE CUMPLIMIENTO: $porcentaje%"
+Write-Host "RESULTADOS DEL ANÁLISIS:"
+Write-Host "- Carga Promedio: $promedio %"
+Write-Host "- Pico Máximo: $pico %"
+Write-Host "- Incidentes Críticos (>90%): $incidentes"
 Write-Host ""
-Write-Host "[URGENTE] Parches Faltantes:"
-Write-Host ($kbsFaltantes -join ", ")
-Write-Host ""
-Write-Host "[INFO] Parches 'Extra' instalados (No críticos):"
-Write-Host ($kbsExtra -join " - ")
+Write-Host "DIAGNÒSTICO: "
+Write-Host $diagnostico
