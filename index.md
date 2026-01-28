@@ -18,7 +18,7 @@
 
 ---
 ### UT04
-* [PR0401: Administración Remota en Windows](./UT04/Practicas/PR0401_Administracion_Remota_en_Windows/PR0401_Administracion_Remota_en_Windows.md) `EN PROCESO`
+* [PR0401: Administración Remota en Windows](./UT04/Practicas/PR0401_Administracion_Remota_en_Windows/PR0401_Administracion_Remota_en_Windows.md) `REALIZADA`
 
 ---
 ### UT05

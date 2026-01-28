@@ -189,10 +189,24 @@ Enter-PSSession -ComputerName DSA-CORE-2019 -UseSSL
 
 ---
 
+Primero, tenemos que desactivar la `Configuraciuon de seguridad mejorada de IE en el WS desktop desde el apartado de servidor local.
 
+Después, instalamos el Windows Admin Center y durante la instalacion seleccionamos la opcion de crear certificado autofirmado.
+
+Una vez realizado lo anterior, buscamos en el navegador `https://dsa_2019/` y iniciamos sesion con el usuario admin_DSA y la contraseña que le pusiese.
+
+Ya dentro del administrador, agregamos los otros dos servidores:
+
+Una vez finalizado tendrias que ver algo asi:
+
+![alt text](imagenes/image4.png)
 
 ---
 
 ## 6. Documentación
 
-Como es habitual, tienes que documentar los pasos más relevantes que has seguido para realizar la práctica.
+Como es habitual, tienes que documentar los pasos más relevantes que has seguido para realizar la práctica. 
+
+---
+
+[VOLVER A INICIO](../../../index.md)
