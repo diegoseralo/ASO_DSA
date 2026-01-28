@@ -40,3 +40,5 @@
 * [PR0609: Análisis de Carga del Procesador](./UT06/Practicas/PR0609_Analisis_de_Carga_del_Procesador/PR0609_Analisis_de_Carga_del_Procesador.md)`REALIZADO`
 
 ---
+### UT07
+* [PR0701: Carpetas Compartidas con Samba](./UT07/Practicas/PR0701_Comparticion_de_Archivos_con_Samba/PR0701_Comparticion_de_Archivos_con_Samba.md)`EN PROCESO`
