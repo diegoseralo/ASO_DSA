@@ -41,4 +41,7 @@
 
 ---
 ### UT07
-* [PR0701: Carpetas Compartidas con Samba](./UT07/Practicas/PR0701_Comparticion_de_Archivos_con_Samba/PR0701_Comparticion_de_Archivos_con_Samba.md)`EN PROCESO`
+* [PR0701: Carpetas Compartidas con Samba](./UT07/Practicas/PR0701_Comparticion_de_Archivos_con_Samba/PR0701_Comparticion_de_Archivos_con_Samba.md)`REALIZADO`
+
+---
+### PROYECTO
